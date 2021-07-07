@@ -10,7 +10,7 @@
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
   },
-  "author": "",
+  "author": "Team BABA",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.3.0"
