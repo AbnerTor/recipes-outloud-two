@@ -6,7 +6,6 @@ const resolvers = {
     
   Query: {
     // getSingleUser - By adding context to our query, we can retrieve the logged in user without specifically searching for them
-
     me: async (parent, arg, context) => {
 
       if (context.user) {
@@ -17,7 +16,6 @@ const resolvers = {
   },
 
   Mutation: {
-    // createUser - addUser(username: String!, email: String! password: String!): Auth
 
     addUser: async (parent, { username, email, password }, context) => {
       const user = await User.create({ username, email, password });
@@ -27,7 +25,7 @@ const resolvers = {
 
     // login(email: String!, password: String!): Auth
 
-    login: async(parent, { email, password }, context) => {
+    signin: async(parent, { email, password }, context) => {
       const user = await User.findOne({ email });
       
       if(!user) {
@@ -43,15 +41,13 @@ const resolvers = {
       return { token, user };
     },
 
-    // saveBook(input: BookInput): User
-
-    saveBook: async (parent, args, context) => {
+    saveRecipe: async (parent, args, context) => {
       if (context.user) {
         return User.findByIdAndUpdate(
           { _id: context.user._id },
           {
             $addToSet: {
-              savedBooks: args.input
+              savedRecipes: args.input
             }
           },
           {
@@ -60,24 +56,22 @@ const resolvers = {
           }
         );
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError('You need to be signed in!');
     },
 
-    // removeBook(bookId: String!): User
-
-    removeBook: async (parent, { bookId }, context) => {
+    removeRecipe: async (parent, { recipeId }, context) => {
       if (context.user) {
         return User.findOneAndUpdate(
         { _id: context.user._id},
         {
           $pull: {
-            savedBooks: { bookId: bookId }
+            savedRecipes: { recipeId: recipeId }
           }
         },
         { new: true }
         );
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError('You need to be signed in!');
     },
   },
 };
