@@ -11,16 +11,20 @@ export const LOGIN_USER = gql`
         recipeCount
         savedRecipes {
           recipeId
-          authors
           image
-          description
           title
-          link
         }
       }
     }
   }
 `;
+
+// FOR SIGNIN USER AND ADD_USER //
+// Add these fields to the savedRecipes array as we build 
+// out the models with data that we want from the API call
+// authors
+// description
+// link
 
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
@@ -33,11 +37,8 @@ export const ADD_USER = gql`
         recipeCount
         savedRecipes {
           recipeId
-          authors
           image
-          description
           title
-          link
         }
       }
     }
