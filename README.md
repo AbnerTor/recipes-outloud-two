@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **recipes outloud**<br>
+<br>
 
-## Available Scripts
+[https://](https://)<br>
 
-In the project directory, you can run:
+Project 3 - Team BABA<br>
 
-### `npm start`
+Broc Crook, [https://github.com/bac5806](https://github.com/bac5806)<br>
+Abner Toribio-Vazquez, [https://github.com/AbnerTor](https://github.com/AbnerTor)<br>
+Brian McMullen, [https://github.com/MrBmmc](https://github.com/MrBmmc)<br>
+Ali Aran, [https://github.com/AranATA](https://github.com/AranATA)<br>
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## description
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+***
+As an avid cook; I want to interact with other people, share my recipes, my creations and discover new ones too. Recipes Outloud aims to bring these people together and equip them with various tools to achieve this goal and make cooking more fun then ever!<br>
+Recipes Outloud App answers these need and presents an easy to use UI. The app was developed using the MERN stack with a React front end, MongoDB database, and Node.js/Express.js server and API. It's already set up to allow users to save book searches to the back end. The app was deployed to Heroku through MongoDB Atlas.  
+<br>
+<br>
 
-### `npm test`
+## acceptance criteria
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+***
 
-### `npm run build`
+GIVEN a Recipes Outloud App:<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* WHEN ...; THEN ... .<br>
+<br>
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+***
 
-### `npm run eject`
+Screenshot that shows the app's wireframe:<br>
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![alt text](client/images/scrshot-wireframe.png)
+<br>
+<br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Screenshot that shows the full generated web page:<br>
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![alt text](client/images/scrshot-home.png)
+<br>
+<br>
+<br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## some valuable references
 
-## Learn More
+***
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+These notes and links are listing some valuable references among others that we used doing this project:<br>
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[https://www.apollographql.com/docs/react/local-state/local-state-management/](https://www.apollographql.com/docs/react/local-state/local-state-management/)
 
-### Code Splitting
+[https://www.apollographql.com/docs/apollo-server/security/authentication/](https://www.apollographql.com/docs/apollo-server/security/authentication/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[https://www.howtographql.com/basics/1-graphql-is-the-better-rest/](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/)
 
-### Analyzing the Bundle Size
+[https://graphql.org/blog/rest-api-graphql-wrapper/](https://graphql.org/blog/rest-api-graphql-wrapper/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[https://www.mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas)
 
-### Making a Progressive Web App
+[https://blog.logrocket.com/how-react-hooks-can-replace-react-router/](https://blog.logrocket.com/how-react-hooks-can-replace-react-router/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<br>
+<br>
 
-### Advanced Configuration
+## credits
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+***
 
-### Deployment
+Stephen Woosley - Bootcamp Instructor<br>
+Patrick Haberern - Bootcamp TA<br>
+Tim Nagorski - Bootcamp TA<br>
+Sean Walmer - Bootcamp TA<br>
+<br>
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## license
 
-### `npm run build` fails to minify
+***
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This is a project done under a bootcamp program.
+<br>
+<br>
+
+## badges
+
+***
+
+![GitHub all releases](https://img.shields.io/github/downloads/AbnerTor/RecipesOutloud/total)
+
+![GitHub language count](https://img.shields.io/github/languages/count/AbnerTor/RecipesOutloud)
+<br>
+<br>
