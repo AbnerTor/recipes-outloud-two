@@ -39,7 +39,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Header />
+          {/* <Header /> */}
           <Switch>
             <Route exact path='/' component={HomeSignup} />
 
