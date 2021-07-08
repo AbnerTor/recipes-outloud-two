@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import HomeSignin from './pages/HomeSignin';
 import HomeSignup from './pages/HomeSignup';
-import MyRecipes from './pages/MyRecipes';
+import Profile from './pages/Profile';
 import MySingle from './pages/MySingle';
 import SearchResults from './pages/SearchResults';
 import SearchSingle from './pages/SearchSingle';
@@ -38,16 +38,23 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <>
+        <div>
           {/* <Header /> */}
           <Switch>
+
             <Route exact path='/' component={HomeSignup} />
 
-            {/* <Route exact path='/' component={SearchBooks} />
-            <Route exact path='/saved' component={SavedBooks} />
+            {/* <Route exact path='/signin' component={HomeSignin} />
+            <Route exact path='/me' component={MyRecipes} />
+            <Route exact path='/profiles/:username' component={Profile} />
+            <Route exact path='/my-recipes/:recipeId' component={MySingle} />
+            <Route exact path='/search-results' component={SearchResults} />
+            <Route exact path='/search-results/:recipeId' component={SearchSingle} />
+            <Route exact path='/features' component={HomeFeatures} />
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
+
           </Switch>
-        </>
+        </div>
       </Router>
     </ApolloProvider>
   );
