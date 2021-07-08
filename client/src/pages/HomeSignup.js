@@ -5,7 +5,7 @@ import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
 
 const Signup = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ email: '', password: '', username: '' });
   const [addUser] = useMutation(ADD_USER);
 
   // set state for alert - CSS NOTE: CREATE A MODAL FOR ALERT
@@ -27,6 +27,7 @@ const Signup = (props) => {
         variables: {
           email: formState.email,
           password: formState.password,
+          username: formState.username,
           firstName: formState.firstName,
           lastName: formState.lastName,
         },
@@ -40,10 +41,11 @@ const Signup = (props) => {
     }
     // clear the form once form submit is handled
     setFormState({
-      firstName: '',
-      lastName: '',
       email: '',
       password: '',
+      username: '',
+      firstName: '',
+      lastName: '',
     });
   };
 
@@ -73,6 +75,16 @@ const Signup = (props) => {
             name="lastName"
             type="lastName"
             id="lastName"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="username">Username:</label>
+          <input
+            placeholder="Username"
+            name="username"
+            type="username"
+            id="username"
             onChange={handleChange}
           />
         </div>

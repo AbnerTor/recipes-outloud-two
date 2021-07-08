@@ -6,6 +6,8 @@ export const SIGNIN_USER = gql`
       token
       user {
         _id
+        firstName
+        lastName
         username
         email
         recipeCount
@@ -32,10 +34,12 @@ export const SIGNIN_USER = gql`
 
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
+    addUser(firstName: $firstName, lastName: $lastName, username: $username, email: $email, password: $password) {
       token
       user {
         _id
+        firstName
+        lastName
         username
         email
         recipeCount

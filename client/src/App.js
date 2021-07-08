@@ -8,12 +8,12 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import HomeSignin from './pages/HomeSignin';
 import HomeSignup from './pages/HomeSignup';
-import Profile from './pages/Profile';
-import MySingle from './pages/MySingle';
-import SearchResults from './pages/SearchResults';
-import SearchSingle from './pages/SearchSingle';
+// import HomeSignin from './pages/HomeSignin';
+// import Profile from './pages/Profile';
+// import MySingle from './pages/MySingle';
+// import SearchResults from './pages/SearchResults';
+// import SearchSingle from './pages/SearchSingle';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
