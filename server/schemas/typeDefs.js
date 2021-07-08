@@ -4,6 +4,8 @@ const typeDefs = gql`
   
 type User {
     _id: ID!
+    firstName: String!
+    lastName: String!
     username: String!
     email: String!
     recipeCount: Int
@@ -45,7 +47,7 @@ type User {
   type Mutation {
     signin(email: String!, password: String!): Auth
     
-    addUser(username: String!, email: String! password: String!): Auth
+    addUser(firstName: String!, lastName: String!, username: String!, email: String! password: String!): Auth
 
     saveRecipe(input: RecipeInput): User
 
