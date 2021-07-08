@@ -56,3 +56,41 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const SAVE_RECIPE = gql`
+  mutation saveRecipe($input: RecipeInput!) {
+    saveRecipe(input: $input) {
+      _id
+      username
+      email
+      savedRecipes {
+        recipeId
+        image
+        title
+        authors
+        description
+        link
+        nutri
+      }
+    }
+  }
+`;
+
+export const REMOVE_RECIPE = gql`
+  mutation removeRecipe($recipeId: String!) {
+    removeRecipe(recipeId: $recipeId){
+      _id
+      username
+      email
+      savedRecipes {
+        recipeId
+        image
+        title
+        authors
+        description
+        link
+        nutri
+      }
+    }
+  }
+`;
