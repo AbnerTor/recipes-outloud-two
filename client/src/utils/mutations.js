@@ -13,6 +13,9 @@ export const LOGIN_USER = gql`
           recipeId
           image
           title
+          authors
+          description
+          link
         }
       }
     }
@@ -39,6 +42,9 @@ export const ADD_USER = gql`
           recipeId
           image
           title
+          authors
+          description
+          link
         }
       }
     }
