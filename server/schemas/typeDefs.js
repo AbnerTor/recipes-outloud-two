@@ -15,24 +15,22 @@ type User {
   type Recipe {
     _id: ID!
     recipeId: String!
-    authors: [String]
-    # authors: String
     image: String!
+    title: String!
+    authors: [String]   
     description: String!
-    title: String!    
     link: String
     nutri: String
   }
 
   input RecipeInput {
     recipeId: String!
-    authors: [String]
-    # authors: String
     image: String!
+    title: String!
+    authors: [String]
     description: String!
-    title: String!    
     link: String
-    nutri: String  
+    nutri: String
   } 
 
   type Comment {

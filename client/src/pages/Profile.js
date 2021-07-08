@@ -1,33 +1,37 @@
 import React, { useState, useEffect } from 'react';
+import {Helmet} from 'react-helmet';
 import { Link } from 'react-router-dom';
-// import { useMutation } from '@apollo/client';
-// import { CREATE_RECIPE } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { SAVE_RECIPE } from '../utils/mutations';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 
-import Header from '../components/HeaderHome';
+import Header from '../components/Header';
+import RecipesCard from '../components/RecipesCard';
 
 import { searchSpoonacular } from '../utils/API';
 import { saveRecipeIds, getSavedRecipeIds } from '../utils/localStorage';
 
 const Profile = () => {
 
-  // create state for holding returned google api data
-  const [searchedBooks, setSearchedBooks] = useState([]);
-  const [saveBook, { error, data }] = useMutation(SAVE_BOOK);
+  // create state for holding returned spoonacular api data
+  const [searchedRecipes, setSearchedRecipes] = useState([]);
+  const [saveRecipe, { error, data }] = useMutation(SAVE_RECIPE);
+
    // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
-  // create state to hold saved bookId values
-  const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
+
+  // create state to hold saved recipeId values
+  const [savedRecipeIds, setSavedRecipeIds] = useState(getSavedRecipeIds());
   
-  // set up useEffect hook to SAVE `savedBookIds` LIST TO LOCAL STORAGE on component unmount
+  // set up useEffect hook to SAVE `savedRecipeIds` LIST TO LOCAL STORAGE on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
-    return () => saveBookIds(savedBookIds);
+    return () => saveRecipeIds(savedRecipeIds);
   });
 
-  // create method to SEARCH FOR BOOKS and set state on form submit
+  // create method to SEARCH FOR RECIPES and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -36,56 +40,77 @@ const Profile = () => {
     }
 
     try {
-      const response = await searchGoogleBooks(searchInput);
+      const response = await searchSpoonacular(searchInput);
      
       if (!response.ok) {
         throw new Error('something went wrong!');
-      }
-      
+      }      
       const { items } = await response.json();
 
-      const bookData = items.map((book) => ({
-        bookId: book.id,
-        authors: book.volumeInfo.authors || ['No author to display'],
-        title: book.volumeInfo.title,
-        description: book.volumeInfo.description,
-        image: book.volumeInfo.imageLinks?.thumbnail || '',
+// NOT REAL PROPS!!! CUSTOMIZE HERE WITH WHAT SPOONACULAR API RETURNS AS KEY VALUE PAIRS
+      const recipeData = items.map((recipe) => ({
+        recipeId: recipe.id,
+        image: recipe.imageLinks?.thumbnail || '',
+        title: recipe.title,
+        authors: recipe.authors || ['No author to display'],
+        description: recipe.description,
+        link: recipe.link,
+        nutri: recipe.nutrition        
       }));
-      console.log(bookData);
-      setSearchedBooks(bookData);
-      setSearchInput('');
-    } catch (err) {
-      console.error(err);
+      console.log(recipeData);
+      setSearchedRecipes(recipeData);
+    } catch (e) {
+      console.error(e);
     }
-  };
-
-  // create function to SAVE A BOOK to our database
-  const handleSaveBook = async (bookId) => {
-    // find the book in `searchedBooks` state by the matching id
-    const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
-
-    // get token
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    if (!token) {
-      return false;
-    }
-
-  // HERE** SAVE_BOOK mutation instead of saveBook
-    try {
-
-      const { data } = await saveBook({
-        variables: { input: bookToSave },
-      });
-
-      // if book successfully saves to user's account, save book id to state
-      console.log(savedBookIds);
-      setSavedBookIds([...savedBookIds, bookToSave.bookId]);
-    } catch (err) {
-      console.error(err);
-    }
+    setSearchInput('');
   };
 
 
+// PROFILES PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea) 
+  return (
+    <>
+      <div>
+        <Header>
+          
+        </Header>
+      </div>
+
+      <div className="container my-1">
+        <h2>Recipe Search</h2>
+        <form onSubmit={handleFormSubmit}>
+
+          <div className="flex-row space-between my-2">
+            
+          </div>
+          <div className="flex-row space-between my-2">
+            
+          </div>
+          <div className="flex-row space-between my-2">
+            
+          </div>
+          <div className="flex-row space-between my-2">
+            
+          </div>
+          <div className="flex-row flex-end">
+            <button type="submit">Submit Search</button>
+          </div>
+        </form>
+      </div>
+
+      <section id="Recipes">
+        <Helmet>
+          <title>Profile | Recipes Outloud</title>
+        </Helmet>
+        <h2>My Recipes</h2>
+        <figure>
+          {searchedRecipes.map((recipe) => (
+            <RecipesCard title={recipe.title} key={recipe.id} featuresA={recipe.featuresA} featuresB={recipe.featuresB} image={recipe.image} link={recipe.link} nutri={recipe.nutri} />
+          ))}
+        </figure>
+      </section>
+    </>
+  );
+}
 
 export default Profile;
+
