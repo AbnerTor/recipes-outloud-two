@@ -9,7 +9,7 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import HomeSignup from './pages/HomeSignup';
-// import HomeSignin from './pages/HomeSignin';
+import HomeSignin from './pages/HomeSignin';
 // import Profile from './pages/Profile';
 // import MySingle from './pages/MySingle';
 // import SearchResults from './pages/SearchResults';
@@ -44,14 +44,21 @@ function App() {
 
             <Route exact path='/' component={HomeSignup} />
 
-            {/* <Route exact path='/signin' component={HomeSignin} />
-            <Route exact path='/me' component={MyRecipes} />
-            <Route exact path='/profiles/:username' component={Profile} />
-            <Route exact path='/my-recipes/:recipeId' component={MySingle} />
-            <Route exact path='/search-results' component={SearchResults} />
-            <Route exact path='/search-results/:recipeId' component={SearchSingle} />
-            <Route exact path='/features' component={HomeFeatures} />
-            <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
+            <Route exact path='/signin' component={HomeSignin} />
+
+            {/* <Route exact path='/me' component={MyRecipes} /> */}
+
+            {/* <Route exact path='/profiles/:username' component={Profile} /> */}
+
+            {/* <Route exact path='/my-recipes/:recipeId' component={MySingle} /> */}
+
+            {/* <Route exact path='/search-results' component={SearchResults} /> */}
+
+            {/* <Route exact path='/search-results/:recipeId' component={SearchSingle} /> */}
+
+            {/* <Route exact path='/features' component={HomeFeatures} /> */}
+
+            {/* <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
 
           </Switch>
         </div>

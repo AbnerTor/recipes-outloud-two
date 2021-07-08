@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const Signup = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '', username: '' });
@@ -35,11 +35,11 @@ const Signup = (props) => {
       // using the token created log the user in
       const token = mutationResponse.data.addUser.token;
       Auth.login(token);
-    } catch (err) {
-      console.error(err);
+    } catch (e) {
+      console.error(e);
       setShowAlert(true);
     }
-    // clear the form once form submit is handled
+    // clear form values
     setFormState({
       email: '',
       password: '',
@@ -51,7 +51,7 @@ const Signup = (props) => {
 
   return (
     <div className="container my-1">
-      <Link to="/login">← Go to Login</Link>
+      <Link to="/signin">← Go to Sign in</Link>
 
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
