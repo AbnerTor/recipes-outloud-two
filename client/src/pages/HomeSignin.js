@@ -1,3 +1,6 @@
+
+// NOTE TO TEAM: SIGNIN_USER FUNCTION IS DEFINED IN HOMESIGNIN.JS
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
