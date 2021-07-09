@@ -10,9 +10,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import HomeSignup from './pages/HomeSignup';
 import HomeSignin from './pages/HomeSignin';
-import Profile from './pages/Profile';
+// import Search from './pages/Search';
 // import MySingle from './pages/MySingle';
-// import SearchResults from './pages/SearchResults';
+// import MyCollection from './pages/MyCollection';
 // import SearchSingle from './pages/SearchSingle';
 
 const httpLink = createHttpLink({
@@ -46,15 +46,15 @@ function App() {
 
             <Route exact path='/signin' component={HomeSignin} />
 
-            {/* <Route exact path='/me' component={Profile} /> */}
+            {/* <Route exact path='/me' component={MyCollection} /> */}
 
-            {/* <Route exact path='/profiles/:username' component={Profile} /> */}
+            {/* <Route exact path='/collections/:username' component={MyCollection} /> */}
 
-            {/* <Route exact path='/my-recipes/:recipeId' component={MySingle} /> */}
+            {/* <Route exact path='/collections/:username/:recipeId' component={MySingle} /> */}
 
-            {/* <Route exact path='/search-results' component={SearchResults} /> */}
+            {/* <Route exact path='/search' component={Search} /> */}
 
-            {/* <Route exact path='/search-results/:recipeId' component={SearchSingle} /> */}
+            {/* <Route exact path='/search/:recipeId' component={SearchSingle} /> */}
 
             {/* <Route exact path='/features' component={HomeFeatures} /> */}
 

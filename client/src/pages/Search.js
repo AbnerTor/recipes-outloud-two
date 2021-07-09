@@ -1,5 +1,5 @@
 
-// NOTE TO TEAM: ALL API SEARCH FUNCTIONS ARE DEFINED IN PROFILE.JS 
+// NOTE TO TEAM: SEARCH.JS HAS ALL API SEARCH AND SAVE_RECIPE FUNCTIONALITY.
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 
 import Header from '../components/Header';
-import RecipesCard from '../components/RecipesCard';
+import RecipesCard from '../components/MyCard';
 
 import { searchSpoonacular } from '../utils/API';
 import { saveRecipeIds, getSavedRecipeIds } from '../utils/localStorage';
@@ -23,7 +23,7 @@ const Profile = () => {
 
    // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
-
+  
   // create state to hold saved recipeId values
   const [savedRecipeIds, setSavedRecipeIds] = useState(getSavedRecipeIds());
   
@@ -32,6 +32,32 @@ const Profile = () => {
   useEffect(() => {
     return () => saveRecipeIds(savedRecipeIds);
   });
+
+// create function to SAVE A RECIPE to our database
+const handleSaveRecipe = async (recipeId) => {
+  // find the recipe in `searchedRecipes` state by the matching id
+  const recipeToSave = searchedRecipes.find((recipe) => recipe.recipeId === recipeId);
+
+  // get token
+  const token = Auth.loggedIn() ? Auth.getToken() : null;
+  if (!token) {
+    return false;
+  }
+
+  try {
+
+    const { data } = await saveRecipe({
+      variables: { input: recipeToSave },
+    });
+
+    // if recipe successfully saves to user's account, save recipe id to state
+    console.log(savedRecipeIds);
+    setSavedRecipeIds([...savedRecipeIds, recipeToSave.recipeId]);
+  } catch (e) {
+    console.error(e);
+  }
+};
+// onClick={() => handleSaveRecipe(recipe.recipeId)}
 
   // create method to SEARCH FOR RECIPES and set state on form submit
   const handleFormSubmit = async (event) => {
@@ -68,7 +94,7 @@ const Profile = () => {
   };
 
 
-// PROFILE PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea) 
+// PROFILES PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea) 
   return (
     <>
       <div>
