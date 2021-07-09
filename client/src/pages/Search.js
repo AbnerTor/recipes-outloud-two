@@ -5,17 +5,16 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { SAVE_RECIPE } from '../utils/mutations';
-import { useQuery } from '@apollo/client';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+
 import Auth from '../utils/auth';
 
 import Header from '../components/Header';
-import RecipesCard from '../components/MyCard';
+import SearchCard from '../components/SearchCard';
 
 import { searchSpoonacular } from '../utils/API';
 import { saveRecipeIds, getSavedRecipeIds } from '../utils/localStorage';
 
-const Profile = () => {
+const Search = () => {
 
   // create state for holding returned spoonacular api data
   const [searchedRecipes, setSearchedRecipes] = useState([]);
@@ -57,7 +56,6 @@ const handleSaveRecipe = async (recipeId) => {
     console.error(e);
   }
 };
-// onClick={() => handleSaveRecipe(recipe.recipeId)}
 
   // create method to SEARCH FOR RECIPES and set state on form submit
   const handleFormSubmit = async (event) => {
@@ -94,7 +92,7 @@ const handleSaveRecipe = async (recipeId) => {
   };
 
 
-// PROFILES PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea) 
+// SEARCH PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea) 
   return (
     <>
       <div>
@@ -125,17 +123,17 @@ const handleSaveRecipe = async (recipeId) => {
         </form>
       </div>
 
-      <section id="Recipes">
-        <h2>My Recipes</h2>
+      <section id="Search">
         <figure>
           {searchedRecipes.map((recipe) => (
-            <RecipesCard title={recipe.title} key={recipe.id} featuresA={recipe.featuresA} featuresB={recipe.featuresB} image={recipe.image} link={recipe.link} nutri={recipe.nutri} />
+            <SearchCard title={recipe.title} key={recipe.id} featuresA={recipe.featuresA} featuresB={recipe.featuresB} image={recipe.image} link={recipe.link} nutri={recipe.nutri} />
           ))}
         </figure>
       </section>
     </>
   );
 }
-
-export default Profile;
+// Save button will be defined in the SearchCard component
+// onClick={() => handleSaveRecipe(recipe.recipeId)}
+export default Search;
 
