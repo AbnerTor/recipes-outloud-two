@@ -3,11 +3,16 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import useSpeech from '../utils/useSpeech';
+
 
 const SignupForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
-  
+
+  // TESTING SPEECH FUNCTION
+  const {speak} = useSpeech();
+
   // set ADD_USER mutation - do we need data?
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
@@ -26,6 +31,8 @@ const SignupForm = () => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    
+    speak(`Hi ${userFormData.username}`);
 
     // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
