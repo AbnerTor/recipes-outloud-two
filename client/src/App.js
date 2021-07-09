@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import HomeSignup from './pages/HomeSignup';
 import HomeSignin from './pages/HomeSignin';
-// import Profile from './pages/Profile';
+import Profile from './pages/Profile';
 // import MySingle from './pages/MySingle';
 // import SearchResults from './pages/SearchResults';
 // import SearchSingle from './pages/SearchSingle';
@@ -46,7 +46,7 @@ function App() {
 
             <Route exact path='/signin' component={HomeSignin} />
 
-            {/* <Route exact path='/me' component={MyRecipes} /> */}
+            {/* <Route exact path='/me' component={Profile} /> */}
 
             {/* <Route exact path='/profiles/:username' component={Profile} /> */}
 

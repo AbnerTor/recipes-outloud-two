@@ -1,5 +1,7 @@
+
+// NOTE TO TEAM: ALL API SEARCH FUNCTIONS ARE DEFINED IN PROFILE.JS 
+
 import React, { useState, useEffect } from 'react';
-import {Helmet} from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { SAVE_RECIPE } from '../utils/mutations';
@@ -66,7 +68,7 @@ const Profile = () => {
   };
 
 
-// PROFILES PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea) 
+// PROFILE PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea) 
   return (
     <>
       <div>
@@ -98,9 +100,6 @@ const Profile = () => {
       </div>
 
       <section id="Recipes">
-        <Helmet>
-          <title>Profile | Recipes Outloud</title>
-        </Helmet>
         <h2>My Recipes</h2>
         <figure>
           {searchedRecipes.map((recipe) => (

@@ -1,3 +1,6 @@
+
+  // NOTE TO TEAM: ADD_USER FUNCTION IS DEFINED IN HOMESIGNUP.JS
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
