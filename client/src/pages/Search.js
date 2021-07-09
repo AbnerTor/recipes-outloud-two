@@ -1,7 +1,7 @@
 
 // NOTE TO TEAM: SEARCH.JS HAS ALL API SEARCH AND SAVE_RECIPE FUNCTIONALITY.
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { SAVE_RECIPE } from '../utils/mutations';
@@ -11,7 +11,7 @@ import Auth from '../utils/auth';
 import Header from '../components/Header';
 import SearchCard from '../components/SearchCard';
 
-import { searchSpoonacular } from '../utils/API';
+import { searchByIngredient } from '../utils/API';
 import { saveRecipeIds, getSavedRecipeIds } from '../utils/localStorage';
 
 const Search = () => {
@@ -65,23 +65,24 @@ const handleSaveRecipe = async (recipeId) => {
       return false;
     }
 
+    // CUSTOMIZE HERE WITH WHAT SPOONACULAR API RETURNS AS KEY VALUE PAIRS WITH EACH DIFFERENT SEARCH
     try {
-      const response = await searchSpoonacular(searchInput);
+      const response = await searchByIngredient(searchInput);
      
       if (!response.ok) {
         throw new Error('something went wrong!');
       }      
       const { items } = await response.json();
-
-// NOT REAL PROPS!!! CUSTOMIZE HERE WITH WHAT SPOONACULAR API RETURNS AS KEY VALUE PAIRS
       const recipeData = items.map((recipe) => ({
+
         recipeId: recipe.id,
-        image: recipe.imageLinks?.thumbnail || '',
+        image: recipe.image || '',
         title: recipe.title,
-        authors: recipe.authors || ['No author to display'],
-        description: recipe.description,
-        link: recipe.link,
-        nutri: recipe.nutrition        
+        // authors: recipe.authors || ['No author to display'],
+        // description: recipe.description,
+        // link: recipe.link,
+        // nutri: recipe.nutrition
+
       }));
       console.log(recipeData);
       setSearchedRecipes(recipeData);
