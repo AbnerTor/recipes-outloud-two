@@ -1,11 +1,12 @@
 
-  // NOTE TO TEAM: ADD_USER FUNCTION IS DEFINED IN HOMESIGNUP.JS
+// NOTE TO TEAM: ADD_USER FUNCTION IS DEFINED IN HOMESIGNUP.JS
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import '../App.css';
 
 import HeaderHome from '../components/HeaderHome';
 import Navbar from '../components/Navbar';
@@ -56,69 +57,86 @@ const Signup = (props) => {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/signin">← Go to Sign in</Link>
+    <>
+    <div className="flex items-end">
+      <div className="w-1/4 bg-green-200 flex-end justify-start pt-8 pb-8 rounded">
 
-      <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
-        {/* <div dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-          Something went wrong with your signup!
-        </div> */}
-        <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name:</label>
-          <input
-            placeholder="First"
-            name="firstName"
-            type="firstName"
-            id="firstName"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            placeholder="Last"
-            name="lastName"
-            type="lastName"
-            id="lastName"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="username">Username:</label>
-          <input
-            placeholder="Username"
-            name="username"
-            type="username"
-            id="username"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email:</label>
-          <input
-            placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
+        <Link className="w-full underline ml-8" to="/signin">← Go to Sign in</Link>
+
+        <h2 className="flex justify-center mr-8">Signup</h2>
+
+        <form className="flex flex-col justify-center" onSubmit={handleFormSubmit}>
+          {/* <div dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+            Something went wrong with your signup!
+           </div> */}
+          <div className="flex flex-col ml-10 ">
+            <label className=""
+              htmlFor="firstName">First Name:</label>
+            <input
+              className="appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
+              placeholder="First"
+              name="firstName"
+              type="firstName"
+              id="firstName"
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="flex flex-col space-between ml-10">
+            <label htmlFor="lastName">Last Name:</label>
+            <input
+              className="shadow appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
+              placeholder="Last"
+              name="lastName"
+              type="lastName"
+              id="lastName"
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="flex flex-col space-between ml-10">
+            <label htmlFor="username">Username:</label>
+            <input
+              className="shadow appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
+              placeholder="Username"
+              name="username"
+              type="username"
+              id="username"
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="flex flex-col space-between ml-10">
+            <label htmlFor="email">Email:</label>
+            <input
+              className="shadow appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
+              placeholder="youremail@test.com"
+              name="email"
+              type="email"
+              id="email"
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="flex flex-col space-between ml-10">
+            <label htmlFor="pwd">Password:</label>
+            <input
+              className="shadow appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
+              placeholder="******"
+              name="password"
+              type="password"
+              id="pwd"
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="flex justify-center pt-8">
+            <button className="flex justify-center bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+      </div>
+    </>
   );
 }
 
