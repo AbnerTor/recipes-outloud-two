@@ -63,6 +63,8 @@ const Signup = (props) => {
 
         <Link className="w-full underline ml-8" to="/signin">← Go to Sign in</Link>
 
+        <Link className="w-full underline ml-8" to="/search"> Go to Search</Link>
+
         <h2 className="flex justify-center mr-8">Signup</h2>
 
         <form className="flex flex-col justify-center" onSubmit={handleFormSubmit}>

@@ -12,6 +12,7 @@ import Header from '../components/Header';
 import SearchCard from '../components/SearchCard';
 
 import { searchByIngredient } from '../utils/API';
+import { searchRandomRecipe } from '../utils/API';
 import { saveRecipeIds, getSavedRecipeIds } from '../utils/localStorage';
 
 const Search = () => {
@@ -61,35 +62,34 @@ const handleSaveRecipe = async (recipeId) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    if (!searchInput) {
-      return false;
-    }
-
     // CUSTOMIZE HERE WITH WHAT SPOONACULAR API RETURNS AS KEY VALUE PAIRS WITH EACH DIFFERENT SEARCH
     try {
-      const response = await searchByIngredient(searchInput);
-     
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }      
-      const { items } = await response.json();
-      const recipeData = items.map((recipe) => ({
+      let recipeData;
 
-        recipeId: recipe.id,
-        image: recipe.image || '',
-        title: recipe.title,
-        // authors: recipe.authors || ['No author to display'],
-        // description: recipe.description,
-        // link: recipe.link,
-        // nutri: recipe.nutrition
+      await searchRandomRecipe()
+      .then(response => response.json())
+        .then(data => console.log(data));
+        recipeData = data;
 
-      }));
+      
+    
+      // const { items } = await response.json();
+      // const recipes = items.map((recipe) => ({
+
+      //   recipeId: recipe.id,
+      //   image: recipe.image || '',
+      //   title: recipe.title,
+      //   // authors: recipe.authors || ['No author to display'],
+      //   // description: recipe.description,
+      //   // link: recipe.link,
+      //   // nutri: recipe.nutrition
+
+      // }));
       console.log(recipeData);
       setSearchedRecipes(recipeData);
     } catch (e) {
       console.error(e);
     }
-    setSearchInput('');
   };
 
 
@@ -97,9 +97,9 @@ const handleSaveRecipe = async (recipeId) => {
   return (
     <>
       <div>
-        <Header>
+        {/* <Header>
           
-        </Header>
+        </Header> */}
       </div>
 
       <div className="container my-1">
@@ -124,13 +124,13 @@ const handleSaveRecipe = async (recipeId) => {
         </form>
       </div>
 
-      <section id="Search">
+      {/* <section id="Search">
         <figure>
           {searchedRecipes.map((recipe) => (
             <SearchCard title={recipe.title} key={recipe.id} featuresA={recipe.featuresA} featuresB={recipe.featuresB} image={recipe.image} link={recipe.link} nutri={recipe.nutri} />
           ))}
         </figure>
-      </section>
+      </section> */}
     </>
   );
 }
