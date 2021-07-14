@@ -56,7 +56,6 @@ const MyCollection = () => {
   return (
     <>
       <div>
-        {/* <Header/> */}
       </div>
       <h2>
           {userData.savedRecipes.length
