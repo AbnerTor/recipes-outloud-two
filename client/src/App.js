@@ -14,7 +14,7 @@ import HomeSignin from './pages/HomeSignin';
 import Search from './pages/Search';
 import Navbar from './components/Navbar';
 // import MySingle from './pages/MySingle';
-// import MyCollection from './pages/MyCollection';
+import MyCollection from './pages/MyCollection';
 // import SearchSingle from './pages/SearchSingle';
 
 const httpLink = createHttpLink({
@@ -49,7 +49,7 @@ function App() {
 
             <Route exact path='/signin' component={HomeSignin} />
 
-            {/* <Route exact path='/me' component={MyCollection} /> */}
+            <Route exact path='/me' component={MyCollection} />
 
             {/* <Route exact path='/collections/:username' component={MyCollection} /> */}
 
