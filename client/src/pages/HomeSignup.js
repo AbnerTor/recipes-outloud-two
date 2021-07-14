@@ -58,11 +58,13 @@ const Signup = (props) => {
 
   return (
     <>
-      <div>
+      <div className="flex flex-row ml-20 mr-20">
 
-        <div className="flex flex-col w-1/4 bg-green-200 justify-start pt-8 pb-8 mt-10 rounded ">
+        <HeaderHome />
+
+        <div className="flex flex-col w-1/4 bg-green-200 justify-start pt-8 pb-8 rounded ">
           <div className="flex flex-row">
-            <Link className="w-full underline ml-8" to="/signin">← Go to Sign in</Link>
+            {/* <Link className="w-full underline ml-8" to="/signin">← Go to Sign in</Link> */}
 
             <Link className="w-full underline ml-8" to="/search"> Go to Search</Link>
           </div>

@@ -50,9 +50,14 @@ const Signin = (props) => {
   };
 
   return (
+    <div className="flex flex-row ml-20 mr-20">
+
+    <HeaderHome />
+
+
     <div className="flex flex-col w-1/4 bg-green-200 justify-start pt-8 pb-8 rounded">
 
-      <Link className="w-full underline ml-8" to="/">← Go to Sign up</Link>
+      {/* <Link className="w-full underline ml-8" to="/">← Go to Sign up</Link> */}
 
       <h2 className="flex justify-center mr-8">Signin</h2>
       <form onSubmit={handleFormSubmit}>
@@ -90,6 +95,7 @@ const Signin = (props) => {
           <button className="flex justify-center bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
         </div>
       </form>
+    </div>
     </div>
   );
 }
