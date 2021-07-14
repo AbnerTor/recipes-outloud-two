@@ -52,7 +52,8 @@ const MyCollection = () => {
     return <h2>LOADING...</h2>;
   }
 
-// MYCOLLECTION PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea) 
+// MYCOLLECTION PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea)
+// new push 
   return (
     <>
       <div>

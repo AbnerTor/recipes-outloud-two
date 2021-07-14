@@ -5,7 +5,7 @@ import { GiCookingPot } from 'react-icons/gi';
 import { IoMenuOutline } from 'react-icons/io5';
 import Auth from '../utils/auth';
 
-// *toggle here is experimental at the moment
+// *toggle here is experimental at the moment - new push
 const Navbar = ({ toggle }) => {
   const logout = (event) => {
     event.preventDefault();

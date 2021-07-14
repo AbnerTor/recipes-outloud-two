@@ -6,7 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME, QUERY_MYRECIPES} from '../utils/queries';
 // import { REMOVE_RECIPE } from '../utils/mutations';
-
+// new push
 import Auth from '../utils/auth';
 
 const MySingle = () => {
