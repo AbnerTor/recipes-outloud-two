@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HomeSignup from './pages/HomeSignup';
 import HomeSignin from './pages/HomeSignin';
 import Search from './pages/Search';
+import Navbar from './components/Navbar';
 // import MySingle from './pages/MySingle';
 // import MyCollection from './pages/MyCollection';
 // import SearchSingle from './pages/SearchSingle';
@@ -41,7 +42,7 @@ function App() {
       {/* try this out! <Context created Provider> */}
       <Router>
         <div>
-          {/* <Header /> */}
+          <Navbar/>
           <Switch>
 
             <Route exact path='/' component={HomeSignup} />
