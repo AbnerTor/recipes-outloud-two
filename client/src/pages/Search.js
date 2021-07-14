@@ -30,8 +30,9 @@ const Search = () => {
   // set up useEffect hook to SAVE `savedRecipeIds` LIST TO LOCAL STORAGE on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
+    searchRandom();
     return () => saveRecipeIds(savedRecipeIds);
-  });
+  }, [savedRecipeIds]);
 
 // create function to SAVE A RECIPE to our database
 const handleSaveRecipe = async (recipeId) => {
@@ -59,37 +60,63 @@ const handleSaveRecipe = async (recipeId) => {
 };
 
   // create method to SEARCH FOR RECIPES and set state on form submit
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    // CUSTOMIZE HERE WITH WHAT SPOONACULAR API RETURNS AS KEY VALUE PAIRS WITH EACH DIFFERENT SEARCH
+  async function searchRandom() {
     try {
       let recipeData;
-
       await searchRandomRecipe()
       .then(response => response.json())
-        .then(data => console.log(data));
-        recipeData = data;
-
-      
+        .then(data => recipeData = data);
     
-      // const { items } = await response.json();
-      // const recipes = items.map((recipe) => ({
+    // const { items } = await recipeData.recipes.json();
+    //   const recipes = items.map((recipe) => ({
+    //     recipeId: recipe.id,
+    //     image: recipe.image || '',
+    //     title: recipe.title,
+    //     authors: recipe.authors || ['No author to display'],
+    //     description: recipe.description,
+    //     link: recipe.link,
+    //     nutri: recipe.nutrition
+    //   }));
 
-      //   recipeId: recipe.id,
-      //   image: recipe.image || '',
-      //   title: recipe.title,
-      //   // authors: recipe.authors || ['No author to display'],
-      //   // description: recipe.description,
-      //   // link: recipe.link,
-      //   // nutri: recipe.nutrition
+    console.log('here', recipeData);
+    setSearchedRecipes(recipeData);
 
-      // }));
-      console.log(recipeData);
-      setSearchedRecipes(recipeData);
     } catch (e) {
       console.error(e);
     }
+  };
+
+  const handleFormSubmit = async (event) => {
+    // event.preventDefault();
+
+    // if (!searchInput) {
+    //   return false;
+    // }
+
+    // try {
+    //   const response = await searchByIngredient(searchInput);
+
+    //   if (!response.ok) {
+    //     throw new Error('something went wrong!');
+    //   }
+
+    //   const { items } = await response.json();
+
+    //   const recipeData = items.map((recipe) => ({
+      //  recipeId: recipe.id,
+      //  image: recipe.image || '',
+      //  title: recipe.title,
+      //  authors: recipe.authors || ['No author to display'],
+      //  description: recipe.description,
+      //  link: recipe.link,
+      //  nutri: recipe.nutrition
+    //   }));
+
+    //   setSearchedRecipes(recipeData);
+    //   setSearchInput('');
+    // } catch (err) {
+    //   console.error(err);
+    // }
   };
 
 
