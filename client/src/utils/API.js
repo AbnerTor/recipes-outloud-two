@@ -1,6 +1,6 @@
 // call spoonacular api
 export function searchRandomRecipe() {
-    return fetch(`https://api.spoonacular.com/recipes/random?apiKey=0c05cf7615134b868eb156a77f29a45a`);
+    return fetch(`https://api.spoonacular.com/recipes/random?apiKey=94976deaae8a40d994f15c05157171af`);
   };
 
   export const searchByIngredient = (query) => {
