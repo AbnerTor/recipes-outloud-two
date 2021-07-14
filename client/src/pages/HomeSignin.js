@@ -50,7 +50,8 @@ const Signin = (props) => {
   };
 
   return (
-    <div className="w-1/4 bg-green-200 flex-end justify-start pt-8 pb-8 rounded">
+    <div className="flex flex-col w-1/4 bg-green-200 justify-start pt-8 pb-8 rounded">
+
       <Link className="w-full underline ml-8" to="/">← Go to Sign up</Link>
 
       <h2 className="flex justify-center mr-8">Signin</h2>

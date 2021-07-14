@@ -12,10 +12,11 @@ const Navbar = ({ toggle }) => {
     Auth.logout();
   };
   return (
-    <nav className='flex-row bg-white text-black font-mono' role='navigation'>
+    <nav className='flex flex-row bg-blue-200 text-black font-mono' role='navigation'>
+
       <div className='flex justify-between items-center h-16 relative shadow-sm'>
 
-        <div>
+      <div className="flex flex-col bg-blue-200 mb-10 pt-24">
           <Link to='/' className='px-12 flex items-center'>
             <IconContext.Provider value={{ color: 'green', size: '3.5rem' }}>
               <div>
