@@ -21,12 +21,12 @@ const Search = () => {
   const [searchedRecipes, setSearchedRecipes] = useState([]);
   const [saveRecipe, { error, data }] = useMutation(SAVE_RECIPE);
 
-   // create state for holding our search field data
+  // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
-  
+
   // create state to hold saved recipeId values
   const [savedRecipeIds, setSavedRecipeIds] = useState(getSavedRecipeIds());
-  
+
   // set up useEffect hook to SAVE `savedRecipeIds` LIST TO LOCAL STORAGE on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
@@ -34,52 +34,51 @@ const Search = () => {
     return () => saveRecipeIds(savedRecipeIds);
   }, [savedRecipeIds]);
 
-// create function to SAVE A RECIPE to our database
-const handleSaveRecipe = async (recipeId) => {
-  // find the recipe in `searchedRecipes` state by the matching id
-  const recipeToSave = searchedRecipes.find((recipe) => recipe.recipeId === recipeId);
+  // create function to SAVE A RECIPE to our database
+  const handleSaveRecipe = async (recipeId) => {
+    // find the recipe in `searchedRecipes` state by the matching id
+    const recipeToSave = searchedRecipes.find((recipe) => recipe.recipeId === recipeId);
 
-  // get token
-  const token = Auth.loggedIn() ? Auth.getToken() : null;
-  if (!token) {
-    return false;
-  }
+    // get token
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    if (!token) {
+      return false;
+    }
 
-  try {
+    try {
 
-    const { data } = await saveRecipe({
-      variables: { input: recipeToSave },
-    });
+      const { data } = await saveRecipe({
+        variables: { input: recipeToSave },
+      });
 
-    // if recipe successfully saves to user's account, save recipe id to state
-    console.log(savedRecipeIds);
-    setSavedRecipeIds([...savedRecipeIds, recipeToSave.recipeId]);
-  } catch (e) {
-    console.error(e);
-  }
-};
+      // if recipe successfully saves to user's account, save recipe id to state
+      console.log(savedRecipeIds);
+      setSavedRecipeIds([...savedRecipeIds, recipeToSave.recipeId]);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   // create method to SEARCH FOR RECIPES and set state on form submit
   async function searchRandom() {
     try {
       let recipeData;
       await searchRandomRecipe()
-      .then(response => response.json())
+        .then(response => response.json())
         .then(data => recipeData = data);
-    
-    // const { items } = await recipeData.recipes.json();
-    //   const recipes = items.map((recipe) => ({
-    //     recipeId: recipe.id,
-    //     image: recipe.image || '',
-    //     title: recipe.title,
-    //     authors: recipe.authors || ['No author to display'],
-    //     description: recipe.description,
-    //     link: recipe.link,
-    //     nutri: recipe.nutrition
-    //   }));
 
-    console.log('here', recipeData);
-    setSearchedRecipes(recipeData);
+      const recipes = recipeData.recipes.map((recipe) => ({
+        recipeId: recipe.id,
+        image: recipe.image || '',
+        title: recipe.title,
+        // authors: recipe.authors || ['No author to display'],
+        // description: recipe.description,
+        // link: recipe.link,
+        // nutri: recipe.nutrition
+      }));
+
+      console.log('Here are my recipe objects: ', recipes);
+      setSearchedRecipes(recipes);
 
     } catch (e) {
       console.error(e);
@@ -103,13 +102,13 @@ const handleSaveRecipe = async (recipeId) => {
     //   const { items } = await response.json();
 
     //   const recipeData = items.map((recipe) => ({
-      //  recipeId: recipe.id,
-      //  image: recipe.image || '',
-      //  title: recipe.title,
-      //  authors: recipe.authors || ['No author to display'],
-      //  description: recipe.description,
-      //  link: recipe.link,
-      //  nutri: recipe.nutrition
+    //  recipeId: recipe.id,
+    //  image: recipe.image || '',
+    //  title: recipe.title,
+    //  authors: recipe.authors || ['No author to display'],
+    //  description: recipe.description,
+    //  link: recipe.link,
+    //  nutri: recipe.nutrition
     //   }));
 
     //   setSearchedRecipes(recipeData);
@@ -120,7 +119,7 @@ const handleSaveRecipe = async (recipeId) => {
   };
 
 
-// SEARCH PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea) 
+  // SEARCH PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea) 
   return (
     <>
       <div>
@@ -134,16 +133,16 @@ const handleSaveRecipe = async (recipeId) => {
         <form onSubmit={handleFormSubmit}>
 
           <div className="flex-row space-between my-2">
-            
+
           </div>
           <div className="flex-row space-between my-2">
-            
+
           </div>
           <div className="flex-row space-between my-2">
-            
+
           </div>
           <div className="flex-row space-between my-2">
-            
+
           </div>
           <div className="flex-row flex-end">
             <button type="submit">Submit Search</button>
@@ -151,17 +150,20 @@ const handleSaveRecipe = async (recipeId) => {
         </form>
       </div>
 
-      {/* <section id="Search">
+      <section id="Search">
         <figure>
           {searchedRecipes.map((recipe) => (
-            <SearchCard title={recipe.title} key={recipe.id} featuresA={recipe.featuresA} featuresB={recipe.featuresB} image={recipe.image} link={recipe.link} nutri={recipe.nutri} />
+            `${recipe.title}, ${recipe.recipeId}, ${recipe.image}`
+            // <SearchCard title={recipe.title} key={recipe.id} featuresA={recipe.featuresA} featuresB={recipe.featuresB} image={recipe.image} link={recipe.link} nutri={recipe.nutri} />
           ))}
+
         </figure>
-      </section> */}
+      </section>
     </>
   );
 }
 // Save button will be defined in the SearchCard component
 // onClick={() => handleSaveRecipe(recipe.recipeId)}
+
 export default Search;
 
