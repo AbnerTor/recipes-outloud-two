@@ -58,59 +58,15 @@ const Signup = (props) => {
 
   return (
     <>
-      <div className="flex flex-row ml-20 mr-20">
+    <div className="flex flex-row ml-20 mr-20">
 
-        <HeaderHome />
+      <HeaderHome />
 
-        <div className="flex flex-col w-1/4 bg-green-200 justify-start pt-8 pb-8 rounded ">
-          <div className="flex flex-row">
-            {/* <Link className="w-full underline ml-8" to="/signin">← Go to Sign in</Link> */}
+      <div className="flex flex-col w-1/4 bg-green-200 justify-start pt-8 pb-8 rounded ">
+        <div className="flex flex-row">
 
-            <Link className="w-full underline ml-8" to="/search"> Go to Search</Link>
-
-        <h2 className="flex justify-center mr-8">Signup</h2>
-
-        <form className="flex flex-col justify-center" onSubmit={handleFormSubmit}>
-          {/* <div dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-            Something went wrong with your signup!
-           </div> */}
-          <div className="flex flex-col ml-10 ">
-            <label className=""
-              htmlFor="firstName">First Name:</label>
-            <input
-              className="appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
-              placeholder="First"
-              name="firstName"
-              type="firstName"
-              id="firstName"
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="flex flex-col space-between ml-10">
-            <label htmlFor="lastName">Last Name:</label>
-            <input
-              className="shadow appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
-              placeholder="Last"
-              name="lastName"
-              type="lastName"
-              id="lastName"
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="flex flex-col space-between ml-10">
-            <label htmlFor="username">Username:</label>
-            <input
-              className="shadow appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
-              placeholder="Username"
-              name="username"
-              type="username"
-              id="username"
-              onChange={handleChange}
-            />
-
-          </div>
+          <Link className="w-full underline ml-8" to="/search"> Go to Search</Link>
+        </div>
 
           <h2 className="flex justify-center mr-8">Signup</h2>
 
@@ -182,11 +138,13 @@ const Signup = (props) => {
             <div className="flex justify-center pt-8">
               <button className="flex justify-center bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
             </div>
+
           </form>
-        </div>
+          
       </div>
-    </>
-  );
+    </div>
+</>
+  )
 }
 
 export default Signup;
