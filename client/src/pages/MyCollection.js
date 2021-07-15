@@ -79,7 +79,7 @@ const MyCollection = () => {
         </h2>
         <div>
           <MyList
-            recipes={user.recipes}
+            recipes={user.savedRecipes}
             title={`${user.username}'s collection...`}
             showTitle={false}
             showUsername={false}
