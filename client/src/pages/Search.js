@@ -1,13 +1,9 @@
-
 // NOTE TO TEAM: SEARCH.JS HAS ALL API SEARCH AND SAVE_RECIPE FUNCTIONALITY.
-
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { SAVE_RECIPE } from '../utils/mutations';
-
 import Auth from '../utils/auth';
-
 import Header from '../components/Header';
 import SearchCard from '../components/SearchCard';
 
@@ -59,7 +55,7 @@ const Search = () => {
     }
   };
 
-  // create method to SEARCH FOR RECIPES and set state on form submit
+  // function to search for random recipes
   async function searchRandom() {
     try {
       let recipeData;
@@ -86,38 +82,41 @@ const Search = () => {
   };
 
   const handleFormSubmit = async (event) => {
-    // event.preventDefault();
+    event.preventDefault();
+
+    // ***** Add searchInput to API call once mapping is working ***** //
 
     // if (!searchInput) {
     //   return false;
     // }
 
-    // try {
-    //   const response = await searchByIngredient(searchInput);
+    // console.log(searchInput);
 
-    //   if (!response.ok) {
-    //     throw new Error('something went wrong!');
-    //   }
+    try {
+      let recipeData;
+      await searchByIngredient()
+        .then(response => response.json())
+        .then(data => recipeData = data);
 
-    //   const { items } = await response.json();
+        console.log(recipeData);
 
-    //   const recipeData = items.map((recipe) => ({
-    //  recipeId: recipe.id,
-    //  image: recipe.image || '',
-    //  title: recipe.title,
-    //  authors: recipe.authors || ['No author to display'],
-    //  description: recipe.description,
-    //  link: recipe.link,
-    //  nutri: recipe.nutrition
-    //   }));
+      const recipes = recipeData.map((recipe) => ({
+        recipeId: recipe.id,
+        image: recipe.image || '',
+        title: recipe.title,
+        // authors: recipe.authors || ['No author to display'],
+        // description: recipe.description,
+        // link: recipe.link,
+        // nutri: recipe.nutrition
+      }));
 
-    //   setSearchedRecipes(recipeData);
-    //   setSearchInput('');
-    // } catch (err) {
-    //   console.error(err);
-    // }
+      console.log('Recipe objects from form submit: ', recipes);
+      setSearchedRecipes(recipes);
+      // setSearchInput('');
+    } catch (e) {
+      console.error(e);
+    }
   };
-
 
   // SEARCH PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea) 
   return (
@@ -143,7 +142,8 @@ const Search = () => {
           </div>
           <div className="flex-row space-between my-2">
 
-          </div>
+          </div> 
+          
           <div className="flex-row flex-end">
             <button type="submit">Submit Search</button>
           </div>
