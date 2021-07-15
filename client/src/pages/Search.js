@@ -1,11 +1,10 @@
 // NOTE TO TEAM: SEARCH.JS HAS ALL API SEARCH AND SAVE_RECIPE FUNCTIONALITY.
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { SAVE_RECIPE } from '../utils/mutations';
 import Auth from '../utils/auth';
-import Header from '../components/Header';
-import SearchCard from '../components/SearchCard';
+import Dropdown from '../components/Dropdown';
 
 import { searchByIngredient } from '../utils/API';
 import { searchRandomRecipe } from '../utils/API';
@@ -157,6 +156,11 @@ const Search = () => {
           <div className="flex-row flex-end">
             <button className="flex justify-center bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">Submit Search</button>
           </div>
+          {/* Dropdown.js component is called */}
+          <div>
+          <Dropdown/>
+          </div>
+
         </form>
       </div>
     </div>
