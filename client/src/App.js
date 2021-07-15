@@ -41,8 +41,9 @@ function App() {
     <ApolloProvider client={client}>
       {/* try this out! <Context created Provider> */}
       <Router>
-        <div>
+        <div className="flex flex-col w-full">
           <Navbar/>
+
           <Switch>
 
             <Route exact path='/' component={HomeSignup} />

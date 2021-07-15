@@ -120,45 +120,46 @@ const Search = () => {
 
   // SEARCH PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea) 
   return (
-    <>
-      <div>
-        {/* <Header>
-          
-        </Header> */}
-      </div>
+    <> 
+    <div className="flex flex-row mr-20 ml-20">
 
-      <div className="container my-1">
+      <section className="flex h-96 w-2/3" id="Search">
+        <figure className="flex bg-green-200 w-full rounded">
+          {searchedRecipes.map((recipe) => (
+            `${recipe.title}, ${recipe.recipeId}, ${recipe.image}`
+
+
+            // <SearchCard title={recipe.title} key={recipe.id} featuresA={recipe.featuresA} featuresB={recipe.featuresB} image={recipe.image} link={recipe.link} nutri={recipe.nutri} />
+          ))}
+
+        </figure>
+      </section>
+
+      <div className="flex flex-col w-1/3 bg-blue-200">
         <h2>Recipe Search</h2>
         <form onSubmit={handleFormSubmit}>
 
           <div className="flex-row space-between my-2">
 
           </div>
+
           <div className="flex-row space-between my-2">
 
           </div>
+
           <div className="flex-row space-between my-2">
 
           </div>
-          <div className="flex-row space-between my-2">
 
+          <div className="flex-row space-between my-2">
           </div> 
-          
+
           <div className="flex-row flex-end">
-            <button type="submit">Submit Search</button>
+            <button className="flex justify-center bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">Submit Search</button>
           </div>
         </form>
       </div>
-
-      <section id="Search">
-        <figure>
-          {searchedRecipes.map((recipe) => (
-            `${recipe.title}, ${recipe.recipeId}, ${recipe.image}`
-            // <SearchCard title={recipe.title} key={recipe.id} featuresA={recipe.featuresA} featuresB={recipe.featuresB} image={recipe.image} link={recipe.link} nutri={recipe.nutri} />
-          ))}
-
-        </figure>
-      </section>
+    </div>
     </>
   );
 }
