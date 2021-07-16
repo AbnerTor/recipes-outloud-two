@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Menu } from '@headlessui/react'
+import globalContext from '../utils/globalContext'
 
 function UiDropdown() {
 
-  const [value, setValue] = useState('');
+  const { valueDrop, setValueDrop } = useContext(globalContext);
+
   const handleSelect = (e) => {
     e.preventDefault()
     console.log(e.target.innerText);
-    e.target.innerText !== 'No Limit' ? setValue(e.target.innerText) : setValue('3000')
+    e.target.innerText !== 'No Limit' ? setValueDrop(e.target.innerText) : setValueDrop('3000')
   }
-  console.log(value);
+  console.log(valueDrop);
 
 
   return (
@@ -33,7 +35,7 @@ function UiDropdown() {
                     href="/search"
                     onClick={handleSelect}
                   >
-                    200 Kcal
+                    200
                   </a>
                 )}
               </Menu.Item>
@@ -47,7 +49,7 @@ function UiDropdown() {
                     href="/search"
                     onClick={handleSelect}
                   >
-                    400 Kcal
+                    400
                   </a>
                 )}
               </Menu.Item>
@@ -61,7 +63,7 @@ function UiDropdown() {
                     href="/search"
                     onClick={handleSelect}
                   >
-                    800 Kcal
+                    800
                   </a>
                 )}
               </Menu.Item>
