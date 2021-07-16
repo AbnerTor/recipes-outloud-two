@@ -1,13 +1,14 @@
 // NOTE TO TEAM: SEARCH.JS HAS API SEARCH AND SAVE_RECIPE FUNCTIONALITY.
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { SAVE_RECIPE } from '../utils/mutations';
 import Auth from '../utils/auth';
 import UiDropdown from '../components/UiDropdown';
 import SearchCard from '../components/SearchCard';
+import globalContext from '../utils/globalContext'
 
-import { complexSearch } from '../utils/API';
+import { complexSearchCal } from '../utils/API';
 // import { summarySearch } from '../utils/API';
 
 import { saveRecipeIds, getSavedRecipeIds } from '../utils/localStorage';
@@ -21,6 +22,8 @@ const SearchRecipes = () => {
 
   // state for search field data (entryA)
   const [inputA, setInputA] = useState('');
+
+  const { valueDrop } = useContext(globalContext);
 
   // state for saved recipeId values (local storage)
   const [savedRecipeIds, setSavedRecipeIds] = useState(getSavedRecipeIds());
@@ -39,9 +42,10 @@ const SearchRecipes = () => {
     }
 
     console.log(inputA);
+    console.log(valueDrop);
 
     try {
-      let complexResponse = await complexSearch(inputA);
+      let complexResponse = await complexSearchCal(inputA, valueDrop);
 
       if (!complexResponse.ok) {
         throw new Error('something went wrong!');
