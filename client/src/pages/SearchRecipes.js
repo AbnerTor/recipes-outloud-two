@@ -13,7 +13,7 @@ import { complexSearch } from '../utils/API';
 
 import { saveRecipeIds, getSavedRecipeIds } from '../utils/localStorage';
 
-const Search = () => {
+const SearchRecipes = () => {
 
   // state for spoonacular api data
   const [searchedRecipes, setSearchedRecipes] = useState([]);
@@ -55,11 +55,10 @@ const Search = () => {
 
 
   // useEffect to SAVE `savedRecipeIds` LIST To Local Storage on component unmount
+  useEffect(() => {
+    return () => saveRecipeIds(savedRecipeIds);
+  });
   
-  // useEffect(() => {
-  //   return () => saveRecipeIds(savedRecipeIds);
-  // });
-
   // SEARCH FOR RECIPES and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -170,5 +169,5 @@ const Search = () => {
 // Save button will be defined in the SearchCard component
 // onClick={() => handleSaveRecipe(recipe.recipeId)}
 
-export default Search;
+export default SearchRecipes;
 
