@@ -1,9 +1,6 @@
 import React from 'react';
 import '../App.css';
 
-// Save button will be defined in the SearchCard component
-// onClick={() => handleSaveRecipe(recipe.recipeId)}
-
 function SearchCard(props) {
 
 // Creating the URL link from recipe.title of the complexSearch results 

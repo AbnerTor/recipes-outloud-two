@@ -11,12 +11,9 @@ export const QUERY_USER = gql`
       recipeCount
       savedRecipes {
         recipeId
-        authors
         image
-        description
         title
-        link
-        nutri
+
       }
     }
   }
@@ -33,12 +30,9 @@ export const GET_ME = gql`
       recipeCount
       savedRecipes {
         recipeId
-        authors
         image
-        description
         title
-        link
-        nutri
+
       }
     }
   }

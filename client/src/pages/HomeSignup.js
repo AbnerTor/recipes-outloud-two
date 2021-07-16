@@ -65,7 +65,7 @@ const Signup = (props) => {
       <div className="flex flex-col w-1/4 bg-green-200 justify-start pt-8 pb-8 rounded ">
         <div className="flex flex-row">
 
-          <Link className="w-full underline ml-8" to="/search"> Go to Search</Link>
+          <Link className="w-full underline ml-8" to="/search-recipes"> Go to Search</Link>
         </div>
 
           <h2 className="flex justify-center mr-8">Signup</h2>
