@@ -99,7 +99,7 @@ const SearchRecipes = () => {
           </h2>
           <figure className="text-black">
             {searchedRecipes.map((recipe) => (
-              <SearchCard key={recipe.recipeId} title={recipe.title} image={recipe.image} />
+              <SearchCard key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} />
             ))}
           </figure>
         </div>
