@@ -19,8 +19,9 @@ const SearchRecipes = () => {
 
   const [saveRecipe, { error, data }] = useMutation(SAVE_RECIPE);
 
-  // state for search field data (entryA)
+  // state for search field data (entryA and entryB)
   const [inputA, setInputA] = useState('');
+  const [inputB, setInputB] = useState('');
 
   // state for saved recipeId values (local storage)
   const [savedRecipeIds, setSavedRecipeIds] = useState(getSavedRecipeIds());
@@ -34,14 +35,15 @@ const SearchRecipes = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    if (!inputA) {
-      return false;
-    }
+    // if (!inputA) {
+    //   return false;
+    // }
 
     console.log(inputA);
+    console.log(inputB);
 
     try {
-      let complexResponse = await complexSearch(inputA);
+      let complexResponse = await complexSearch(inputA, inputB);
 
       if (!complexResponse.ok) {
         throw new Error('something went wrong!');
@@ -54,12 +56,13 @@ const SearchRecipes = () => {
         recipeId: recipe.id,
         title: recipe.title,
         image: recipe.image || '../../images/placeholder.jpg',
-        
+        kcal: recipe.nutrition.nutrients.amount
       }));
 
       console.log(complexData);
       setSearchedRecipes(complexData);
       setInputA('');
+      setInputB('');
     } catch (e) {
       console.error(e);
     }
@@ -99,7 +102,7 @@ const SearchRecipes = () => {
           </h2>
           <figure className="text-black">
             {searchedRecipes.map((recipe) => (
-              <SearchCard key={recipe.recipeId} title={recipe.title} image={recipe.image} />
+              <SearchCard key={recipe.recipeId} title={recipe.title} image={recipe.image} kcal={recipe.nutrition.nutrients.amount} />
             ))}
           </figure>
         </div>
@@ -112,13 +115,7 @@ const SearchRecipes = () => {
 
             <label for="complexSearch">Key Word:</label>
 
-            <input
-              className="form-input"
-              type="text"
-              placeholder="soup?"
-              value={inputA}
-              onChange={(e) => setInputA(e.target.value)}
-            />
+            <input type="text" placeholder="soup?" />
 
             {/* UiDropdown.js component is called */}
             <UiDropdown /> 
@@ -135,5 +132,8 @@ const SearchRecipes = () => {
     </div>
   );
 }
+// Save button will be defined in the SearchCard component
+// onClick={() => handleSaveRecipe(recipe.recipeId)}
 
-export default SearchRecipes;
+      export default SearchRecipes;
+
