@@ -31,10 +31,10 @@ const Navbar = ({ toggle }) => {
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
+              <Link className="btn btn-lg btn-info m-2" to="/signin">
                 Sign in
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link className="btn btn-lg btn-light m-2" to="/">
                 Sign up
               </Link>
             </>

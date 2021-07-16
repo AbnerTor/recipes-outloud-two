@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { SAVE_RECIPE } from '../utils/mutations';
 import Auth from '../utils/auth';
-import Dropdown from '../components/Dropdown';
+import UiDropdown from '../components/UiDropdown';
 
 import { searchByIngredient } from '../utils/API';
 import { searchRandomRecipe } from '../utils/API';
@@ -153,14 +153,11 @@ const Search = () => {
           <div className="flex-row space-between my-2">
           </div> 
 
-          <div className="flex-row flex-end">
-            <button className="flex justify-center bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">Submit Search</button>
+          <div className="flex justify-center">
+            <button className=" bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">Submit Search</button>
           </div>
-          {/* Dropdown.js component is called */}
-          <div>
-          <Dropdown/>
-          </div>
-
+          {/* UiDropdown.js component is called */}
+          <UiDropdown/>      
         </form>
       </div>
     </div>
