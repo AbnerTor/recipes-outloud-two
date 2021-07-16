@@ -103,7 +103,17 @@ const SearchRecipes = () => {
           </h2>
           <figure className="text-black">
             {searchedRecipes.map((recipe) => (
+              <div>
               <SearchCard key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} />
+              <button
+                      disabled={savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)}
+                      className='btn-block btn-info'
+                      onClick={() => handleSaveRecipe(recipe.recipeId)}>
+                      {savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)
+                        ? 'This recipe has already been saved!'
+                        : 'Save this Recipe!'}
+                    </button>
+                    </div>
             ))}
           </figure>
         </div>
