@@ -33,7 +33,7 @@ function UiDropdown() {
                     href="/search"
                     onClick={handleSelect}
                   >
-                    200 Cal
+                    200 Kcal
                   </a>
                 )}
               </Menu.Item>
@@ -47,7 +47,7 @@ function UiDropdown() {
                     href="/search"
                     onClick={handleSelect}
                   >
-                    400 Cal
+                    400 Kcal
                   </a>
                 )}
               </Menu.Item>
@@ -61,7 +61,7 @@ function UiDropdown() {
                     href="/search"
                     onClick={handleSelect}
                   >
-                    800 Cal
+                    800 Kcal
                   </a>
                 )}
               </Menu.Item>

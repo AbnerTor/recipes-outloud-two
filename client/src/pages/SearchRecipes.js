@@ -5,9 +5,8 @@ import { useMutation } from '@apollo/client';
 import { SAVE_RECIPE } from '../utils/mutations';
 import Auth from '../utils/auth';
 import UiDropdown from '../components/UiDropdown';
+import SearchCard from '../components/SearchCard';
 
-import { searchByIngredient } from '../utils/API';
-import { searchRandomRecipe } from '../utils/API';
 import { complexSearch } from '../utils/API';
 // import { summarySearch } from '../utils/API';
 
@@ -21,77 +20,49 @@ const SearchRecipes = () => {
   const [saveRecipe, { error, data }] = useMutation(SAVE_RECIPE);
 
   // state for search field data (entryA and entryB)
-  const [searchInput, setSearchInput] = useState('');
+  const [inputA, setInputA] = useState('');
+  const [inputB, setInputB] = useState('');
 
   // state for saved recipeId values (local storage)
   const [savedRecipeIds, setSavedRecipeIds] = useState(getSavedRecipeIds());
-
-
-  // ****** BROC'S searchRandom Code *****
-  useEffect(() => {
-    searchRandom();
-    return () => saveRecipeIds(savedRecipeIds);
-  }, [savedRecipeIds]);
-
-  async function searchRandom() {
-    try {
-      let recipeData;
-      await searchRandomRecipe()
-        .then(response => response.json())
-        .then(data => recipeData = data);
-
-      const recipes = recipeData.recipes.map((recipe) => ({
-        recipeId: recipe.id,
-        image: recipe.image || '',
-        title: recipe.title,
-      }));
-
-      console.log('Here are my recipe objects: ', recipes);
-      setSearchedRecipes(recipes);
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
 
   // useEffect to SAVE `savedRecipeIds` LIST To Local Storage on component unmount
   useEffect(() => {
     return () => saveRecipeIds(savedRecipeIds);
   });
-  
+
   // SEARCH FOR RECIPES and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // ***** Add searchInput to API call once mapping is working ***** //
-
-    // if (!searchInput) {
+    // if (!inputA) {
     //   return false;
     // }
 
-    // console.log(searchInput);
+    console.log(inputA);
+    console.log(inputB);
 
     try {
-      let recipeData;
-      await searchByIngredient()
-        .then(response => response.json())
-        .then(data => recipeData = data);
+      let complexResponse = await complexSearch(inputA, inputB);
 
-      console.log(recipeData);
+      if (!complexResponse.ok) {
+        throw new Error('something went wrong!');
+      }
 
-      const recipes = recipeData.map((recipe) => ({
+      const { results } = await complexResponse.json();
+
+
+      const complexData = results.map((recipe) => ({
         recipeId: recipe.id,
-        image: recipe.image || '',
         title: recipe.title,
-        // authors: recipe.authors || ['No author to display'],
-        // description: recipe.description,
-        // link: recipe.link,
-        // nutri: recipe.nutrition
+        image: recipe.image || '../../images/placeholder.jpg',
+        kcal: recipe.nutrition.nutrients.amount
       }));
 
-      console.log('Recipe objects from form submit: ', recipes);
-      setSearchedRecipes(recipes);
-      // setSearchInput('');
+      console.log(complexData);
+      setSearchedRecipes(complexData);
+      setInputA('');
+      setInputB('');
     } catch (e) {
       console.error(e);
     }
@@ -119,55 +90,50 @@ const SearchRecipes = () => {
     }
   };
 
-  // SEARCH PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea) 
   return (
-    <>
-      <div className="flex flex-row mr-20 ml-20">
+    <div className="flex flex-row mr-20 ml-20">
 
-        <section className="flex h-96 w-2/3" id="Search">
-          <figure className="flex bg-green-200 w-full rounded">
+      <div className="flex h-96 w-2/3" id="Search">
+        <div className="flex bg-green-200 w-full rounded">
+          <h2>
+            {searchedRecipes.length
+              ? `Viewing ${searchedRecipes.length} results:`
+              : 'Welcome to the Search Page'}
+          </h2>
+          <figure className="text-black">
             {searchedRecipes.map((recipe) => (
-              `${recipe.title}, ${recipe.recipeId}, ${recipe.image}`
-
-
-              // <SearchCard title={recipe.title} key={recipe.id} featuresA={recipe.featuresA} featuresB={recipe.featuresB} image={recipe.image} link={recipe.link} nutri={recipe.nutri} />
+              <SearchCard key={recipe.recipeId} title={recipe.title} image={recipe.image} kcal={recipe.nutrition.nutrients.amount} />
             ))}
-
           </figure>
-        </section>
-
-        <div className="flex flex-col w-1/3 bg-blue-200">
-          <h2>Recipe Search</h2>
-          <form onSubmit={handleFormSubmit}>
-
-            <div className="flex-row space-between my-2">
-
-            </div>
-
-            <div className="flex-row space-between my-2">
-
-            </div>
-
-            <div className="flex-row space-between my-2">
-
-            </div>
-
-            <div className="flex-row space-between my-2">
-            </div>
-
-            <div className="flex justify-center">
-              <button className=" bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">Submit Search</button>
-            </div>
-            {/* UiDropdown.js component is called */}
-            <UiDropdown />
-          </form>
         </div>
       </div>
-    </>
+
+      <div className="flex flex-col w-1/3 bg-blue-200">
+        <h2>Search For Recipes Here!</h2>
+        <form onSubmit={handleFormSubmit} >
+          <div className="flex-row space-between my-2">
+
+            <label for="complexSearch">Key Word:</label>
+
+            <input type="text" placeholder="soup?" />
+
+            {/* UiDropdown.js component is called */}
+            <UiDropdown /> 
+
+            <div className="flex justify-center">
+              <button className=" bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">Search</button>
+            </div>
+          
+          </div>
+ 
+        </form>           
+
+      </div>
+    </div>
   );
 }
 // Save button will be defined in the SearchCard component
 // onClick={() => handleSaveRecipe(recipe.recipeId)}
 
-export default SearchRecipes;
+      export default SearchRecipes;
 
