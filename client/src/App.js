@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HomeSignup from './pages/HomeSignup';
 import HomeSignin from './pages/HomeSignin';
 import Search from './pages/Search';
+import SearchRecipes from './pages/SearchRecipes';
 import Navbar from './components/Navbar';
 // import MySingle from './pages/MySingle';
 import MyCollection from './pages/MyCollection';
@@ -54,11 +55,9 @@ function App() {
 
             {/* <Route exact path='/collections/:username' component={MyCollection} /> */}
 
-            {/* <Route exact path='/collections/:username/:recipeId' component={MySingle} /> */}
-
             <Route exact path='/search' component={Search} />
 
-            {/* <Route exact path='/search/:recipeId' component={SearchSingle} /> */}
+            <Route exact path='/search-recipes' component={SearchRecipes} />
 
             {/* <Route exact path='/features' component={HomeFeatures} /> */}
 

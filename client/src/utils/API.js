@@ -10,3 +10,11 @@ export function searchRandomRecipe() {
 export function searchByIngredient() {
   return fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ingredients=chicken`);
 };
+
+export function complexSearch(entryA, entryB) {
+  return fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&query=${entryA}&maxCalories=${entryB}`);
+};
+
+export function summarySearch(id) {
+  return fetch(`https://api.spoonacular.com/recipes/${id}/summary?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
+};
