@@ -42,8 +42,6 @@ function App() {
       {/* try this out! <Context created Provider> */}
       <Router>
         <div className="flex flex-col w-full">
-          <Navbar/>
-
           <Switch>
 
             <Route exact path='/' component={HomeSignup} />

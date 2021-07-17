@@ -50,12 +50,15 @@ const Signin = (props) => {
   };
 
   return (
-    <div className="flex flex-row ml-20 mr-20">
+    <div className="flex flex-row ml-40 mr-40">
 
     <HeaderHome />
 
 
-    <div className="flex flex-col w-1/4 bg-green-200 justify-start pt-8 pb-8 rounded">
+    <div className="flex flex-col w-1/3 bg-green-200 justify-start pb-8 rounded">
+
+    <Navbar/>
+
 
       {/* <Link className="w-full underline ml-8" to="/">← Go to Sign up</Link> */}
 
