@@ -12,9 +12,22 @@ const Navbar = ({ toggle }) => {
     Auth.logout();
   };
   return (
-    <nav className='flex flex-row bg-red-400 text-black font-mono' role='navigation'>
+    <nav className='flex flex-row justify-end bg-red-400 text-black font-mono' role='navigation'>
 
-      <div className='flex justify-between items-center h-16 relative shadow-sm'>
+      <div className="flex w-3/4 flex-col bg-blue-200 mb-10 pt-24 h-96">
+                <Link to='/' className='px-12 flex flex-col'>
+                    <IconContext.Provider value={{ color: 'green', size: '1.5rem' }}>
+                        <div>
+                            <GiCookingPot />
+                        </div>
+                    </IconContext.Provider>
+                    <h1 className='pl-4 text-green'>RECIPES OUTLOUD</h1>
+                    <p className="pl-4">Expand Your Joy of Cooking!</p>
+                </Link>
+        </div>
+
+
+      <div className='flex justify-end items-center h-16 relative shadow-sm'>
 
         <div>
           {Auth.loggedIn() ? (
