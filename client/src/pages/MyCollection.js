@@ -41,13 +41,16 @@ const MyCollection = () => {
 
   if (!user?.username) {
     return (
-      <h4>
-        You need to be logged in to see this. Please use the navigation links above to sign up or sign in!
-      </h4>
+      <div>
+        <h4 className="bg-yellow-400 text-xl flex justify-center py-5">
+          You need to be logged in to see this. Please use the navigation links above to sign up or sign in!
+        </h4>
+        <Navbar />
+      </div>
     );
   }
 
-  
+
   // // create function that accepts the recipe's mongo _id value as param and deletes the recipe from the database
   // const [removeRecipe] = useMutation(REMOVE_RECIPE);
 
@@ -64,7 +67,7 @@ const MyCollection = () => {
 
   //   // upon success, remove recipe's id from localStorage
   //     removeRecipeId(recipeId);
-     
+
   //   } catch (err) {
   //     console.error(err);
   //   }
@@ -75,15 +78,15 @@ const MyCollection = () => {
   //   return <h2>LOADING...</h2>;
   // }
 
-// MYCOLLECTION PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea)
+  // MYCOLLECTION PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea)
   return (
     <>
       <div>
-      
+
         <h2>
-            {user.savedRecipes.length
-              ? `Viewing ${user.savedRecipes.length} saved ${user.savedRecipes.length === 1 ? 'recipe' : 'recipes'}:`
-              : 'You have no saved recipes!'}
+          {user.savedRecipes.length
+            ? `Viewing ${user.savedRecipes.length} saved ${user.savedRecipes.length === 1 ? 'recipe' : 'recipes'}:`
+            : 'You have no saved recipes!'}
         </h2>
         <div>
           <MyList
@@ -91,7 +94,7 @@ const MyCollection = () => {
             title={`${user.username}'s collection...`}
             showTitle={false}
             showUsername={false}
-          />  
+          />
         </div>
       </div>
     </>

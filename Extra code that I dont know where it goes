@@ -1,0 +1,8 @@
+            <div className='px-4 cursor-pointer md:hidden' onClick={toggle}>
+                <IconContext.Provider value={{ color: 'green', size: '2.75rem' }}>
+                    <div>
+                        <IoMenuOutline />
+                    </div>
+                </IconContext.Provider>
+            </div>
+// pulled from navBar

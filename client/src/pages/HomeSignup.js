@@ -87,20 +87,28 @@ const Signup = (props) => {
 
   return (
     <>
-    <div className="flex flex-row ml-20 mr-20">
+      <div className="flex flex-row ml-40 mr-40">
 
-      <HeaderHome />
+        <HeaderHome />
 
-      <div className="flex flex-col w-1/4 bg-green-200 justify-start pt-8 pb-8 rounded ">
-        <div className="flex flex-row">
+        <div className="flex flex-col w-1/3 bg-green-200 justify-start pb-8 rounded ">
 
           <Link className="w-full underline ml-8" to="/search"> Go to Search</Link>
         </div>
 
-          <h2 className="flex justify-center mr-8">Signup</h2>
+          <Navbar />
 
-          <form className="flex flex-col justify-center" onSubmit={handleFormSubmit}>
-            {/* <div dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+          <div className="flex flex-row">
+            <Link className="w-full underline ml-8" to="/search-recipes"> Go to Search</Link>
+          </div>
+
+
+          <div className="flex flex-col">
+
+            <h2 className="flex justify-center mr-8">Signup</h2>
+
+            <form className="flex flex-col justify-center" onSubmit={handleFormSubmit}>
+              {/* <div dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
             Something went wrong with your signup!
            </div> */}
             <div className="flex flex-col ml-10 ">

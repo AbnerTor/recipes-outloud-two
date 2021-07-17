@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const HeaderHome = () => {
 
     return (
-        <div className="flex w-3/4 flex-col bg-blue-200 mb-10 pt-24 h-96">
+        <div className="flex w-2/3 flex-col bg-blue-200 mb-10 pt-24 h-96">
             <div>
                 <Link to='/' className='px-12 flex items-center'>
                     <IconContext.Provider value={{ color: 'green', size: '3.5rem' }}>
@@ -21,6 +21,7 @@ const HeaderHome = () => {
                 </Link>
                 <p className="pl-4">Expand Your Joy of Cooking!</p>
             </div>
+
         </div>
     )
 }
