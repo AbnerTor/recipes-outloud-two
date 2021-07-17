@@ -13,7 +13,6 @@ import globalState from './utils/globalState'
 
 import HomeSignup from './pages/HomeSignup';
 import HomeSignin from './pages/HomeSignin';
-// import Search from './pages/Search';
 import SearchRecipes from './pages/SearchRecipes';
 import MyCollection from './pages/MyCollection';
 
