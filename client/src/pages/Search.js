@@ -5,10 +5,10 @@ import { useMutation } from '@apollo/client';
 import { SAVE_RECIPE } from '../utils/mutations';
 import Auth from '../utils/auth';
 
-import Header from '../components/Header';
+import HeaderHome from '../components/HeaderHome';
 // import SearchCard from '../components/SearchCard';
 
-import UiDropdown from '../components/UiDropdown';
+// import UiDropdown from '../components/UiDropdown';
 
 
 import { searchByIngredient } from '../utils/API';
