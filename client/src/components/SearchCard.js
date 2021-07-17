@@ -50,7 +50,7 @@ function SearchCard(props) {
   const linkBody = props.title.replace(/\s+/g, '-').toLowerCase();
   console.log(linkBody);
   const recipeURL = `https://spoonacular.com/${linkBody}-${props.id}`
-  console.log(props.id);
+  console.log('props: ', props.id);
   
   return (
     <div>
