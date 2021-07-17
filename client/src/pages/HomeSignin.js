@@ -27,7 +27,7 @@ const Signin = (props) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    console.log(formState);
     try {
       const mutationResponse = await signin({
         variables: {
@@ -38,6 +38,8 @@ const Signin = (props) => {
 
       const token = mutationResponse.data.signin.token;
       Auth.login(token);
+
+      console.log(token);
     } catch (e) {
       console.log(e);
       setShowAlert(true);
@@ -62,7 +64,7 @@ const Signin = (props) => {
 
       {/* <Link className="w-full underline ml-8" to="/">← Go to Sign up</Link> */}
 
-      <h2 className="flex justify-center mr-8">Signin</h2>
+      <h2 className="flex justify-center mr-8">Sign in</h2>
       <form onSubmit={handleFormSubmit}>
         
         <div className="flex flex-col space-between ml-10">
@@ -73,6 +75,7 @@ const Signin = (props) => {
             name="email"
             type="email"
             id="email"
+            value={formState.email}
             onChange={handleChange}
           />
         </div>
@@ -85,6 +88,7 @@ const Signin = (props) => {
             name="password"
             type="password"
             id="pwd"
+            value={formState.password}
             onChange={handleChange}
           />
         </div>
