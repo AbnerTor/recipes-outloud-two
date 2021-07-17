@@ -1,26 +1,19 @@
 
 // NOTE TO TEAM: ADD_USER FUNCTION IS DEFINED IN HOMESIGNUP.JS
-import React, { useState, useEffect } from 'react';
+
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import '../App.css';
 
-import { searchRandomRecipe } from '../utils/API';
 import HeaderHome from '../components/HeaderHome';
 import Navbar from '../components/Navbar';
-import SearchCard from '../components/SearchCard';
 
 const Signup = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '', username: '' });
   const [addUser] = useMutation(ADD_USER);
-
-  // create state for holding returned spoonacular api data
-  const [searchedRecipes, setSearchedRecipes] = useState([]);
-  useEffect(() => {
-    searchRandom();
-  }, []);
 
   // set state for alert - CSS NOTE: CREATE A MODAL FOR ALERT
   const [showAlert, setShowAlert] = useState(false);
@@ -32,27 +25,6 @@ const Signup = (props) => {
       ...formState,
       [name]: value,
     });
-  };
-
-  // function to search for random recipes
-  async function searchRandom() {
-    let recipeData;
-    try {
-      await searchRandomRecipe()
-        .then(response => response.json())
-        .then(data => recipeData = data);
-
-      const recipes = recipeData.recipes.map((recipe) => ({
-        recipeId: recipe.id,
-        title: recipe.title,
-        image: recipe.image || '',
-      }));
-      console.log('here: ', recipeData);
-      setSearchedRecipes(recipes);
-
-    } catch (e) {
-      console.error(e);
-    }
   };
 
   const handleFormSubmit = async (event) => {
@@ -94,14 +66,13 @@ const Signup = (props) => {
 
         <div className="flex flex-col w-1/3 bg-green-200 justify-start pb-8 rounded ">
 
-          {/* <Link className="w-full underline ml-8" to="/search"> Go to Search</Link> */}
-        </div>
 
           <Navbar />
 
           <div className="flex flex-row">
             <Link className="w-full underline ml-8" to="/search-recipes"> Go to Search</Link>
           </div>
+
 
           <div className="flex flex-col">
 
@@ -180,22 +151,11 @@ const Signup = (props) => {
             <div className="flex justify-center pt-8">
               <button className="flex justify-center bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
             </div>
-
           </form>
       </div>
-    </div>
-
-    <div className="flex flex-row mr-20 ml-20">
-
-      <section className="flex h-96 w-2/3" id="Search">
-        <figure className="flex bg-green-200 w-full rounded">
-          {searchedRecipes.map((recipe) => (
-            <SearchCard key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} />
-          ))}
-        </figure>
-      </section>
-    </div>
-</>
+      </div>
+      </div>
+    </>
   )
 }
 
