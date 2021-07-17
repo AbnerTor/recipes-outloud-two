@@ -5,8 +5,10 @@
 // import { SAVE_RECIPE } from '../utils/mutations';
 // import Auth from '../utils/auth';
 
-// import Header from '../components/Header';
-// // import SearchCard from '../components/SearchCard';
+
+import HeaderHome from '../components/HeaderHome';
+// import SearchCard from '../components/SearchCard';
+
 
 // import UiDropdown from '../components/UiDropdown';
 
