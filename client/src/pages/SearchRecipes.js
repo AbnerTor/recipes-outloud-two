@@ -90,10 +90,10 @@ const SearchRecipes = () => {
   };
 
   return (
-    <div className="flex flex-row mr-20 ml-20">
+    <div className="flex flex-row h-auto mr-20 ml-20">
 
       <div className="flex h-96 w-2/3" id="Search">
-        <div className="flex bg-green-200 w-full rounded">
+        <div className="flex bg-green-200 w-full rounded h-auto">
           <h2>
             {searchedRecipes.length
               ? `Viewing ${searchedRecipes.length} results:`

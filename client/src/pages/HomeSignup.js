@@ -8,7 +8,6 @@ import Auth from '../utils/auth';
 import '../App.css';
 
 import { searchRandomRecipe } from '../utils/API';
-import { getRecipeInfo } from '../utils/API';
 import HeaderHome from '../components/HeaderHome';
 import Navbar from '../components/Navbar';
 import SearchCard from '../components/SearchCard';
@@ -93,7 +92,7 @@ const Signup = (props) => {
 
         <div className="flex flex-col w-1/3 bg-green-200 justify-start pb-8 rounded ">
 
-          <Link className="w-full underline ml-8" to="/search"> Go to Search</Link>
+          {/* <Link className="w-full underline ml-8" to="/search"> Go to Search</Link> */}
         </div>
 
           <Navbar />
@@ -101,7 +100,6 @@ const Signup = (props) => {
           <div className="flex flex-row">
             <Link className="w-full underline ml-8" to="/search-recipes"> Go to Search</Link>
           </div>
-
 
           <div className="flex flex-col">
 

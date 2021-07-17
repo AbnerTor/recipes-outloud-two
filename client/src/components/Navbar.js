@@ -28,7 +28,6 @@ const Navbar = ({ toggle }) => {
             </>
           ) : (
             <>
-
               <Link className="btn btn-lg btn-info m-2 text-xl" to="/signin">
                 Sign in
               </Link>
@@ -39,8 +38,6 @@ const Navbar = ({ toggle }) => {
             </>
           )}
         </div>
-
-
       </div>
     </div>
   );
