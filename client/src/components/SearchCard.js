@@ -11,12 +11,12 @@ function SearchCard(props) {
   return (
     <div>
       <div className="flex flex-row mt-10">
-        <a className="bg-red-400 flex flex-row w-1/2 h-48 items-center" href={recipeURL} target="blank">
-          <div>
-            <h4>{props.title}</h4>
+        <a className="flex flex-col items-center pt-3 mx-2 justify-center rounded-lg" href={recipeURL} target="blank">
+          <div className="bg-yellow-400 w-full flex justify-center">
+            <h4 className=" py-4" >{props.title}</h4>
           </div>
-          <div>
-            <img src={props.image} alt={`Recipe ${props.id}`} />
+          <div className="mb-2">
+            <img className="rounded-md h-54" src={props.image} alt={`Recipe ${props.id}`} />
           </div>
         </a>
       </div>

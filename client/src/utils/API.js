@@ -27,7 +27,3 @@ export function complexSearchCal(entryA, entryB) {
 export function summarySearch(id) {
   return fetch(`https://api.spoonacular.com/recipes/${id}/summary?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
 };
-
-export function getRecipeInfo(id) {
-  return fetch(`https://api.spoonacular.com/recipes/${id}/information`);
-}
