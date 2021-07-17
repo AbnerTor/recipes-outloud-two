@@ -13,7 +13,7 @@ import globalState from './utils/globalState'
 
 import HomeSignup from './pages/HomeSignup';
 import HomeSignin from './pages/HomeSignin';
-import Search from './pages/Search';
+// import Search from './pages/Search';
 import SearchRecipes from './pages/SearchRecipes';
 // import MySingle from './pages/MySingle';
 import MyCollection from './pages/MyCollection';
@@ -55,7 +55,7 @@ function App() {
 
             {/* <Route exact path='/collections/:username' component={MyCollection} /> */}
 
-            <Route exact path='/search' component={Search} />
+            {/* <Route exact path='/search' component={Search} /> */}
 
             <Route exact path='/search-recipes' component={SearchRecipes} />
 
