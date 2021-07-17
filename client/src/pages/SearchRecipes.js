@@ -58,7 +58,7 @@ const SearchRecipes = () => {
         recipeId: recipe.id,
         title: recipe.title,
         image: recipe.image || '../../images/placeholder.jpg',
-        
+
       }));
 
       console.log(complexData);
@@ -92,10 +92,10 @@ const SearchRecipes = () => {
   };
 
   return (
-    <div className="flex flex-row h-auto mr-20 ml-20">
+    <div className="flex flex-row h-auto mr-40 ml-40">
 
-      <div className="flex h-96 w-2/3" id="Search">
-        <div className="flex bg-green-200 w-full rounded h-auto">
+      <div className="flex h-auto w-2/3" id="Search">
+        <div className="flex flex-col bg-green-200 w-full rounded h-auto">
           <h2>
             {searchedRecipes.length
               ? `Viewing ${searchedRecipes.length} results:`
@@ -104,16 +104,16 @@ const SearchRecipes = () => {
           <figure className="text-black">
             {searchedRecipes.map((recipe) => (
               <div>
-              <SearchCard key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} />
-              <button
-                      disabled={savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)}
-                      className='btn-block btn-info'
-                      onClick={() => handleSaveRecipe(recipe.recipeId)}>
-                      {savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)
-                        ? 'This recipe has already been saved!'
-                        : 'Save this Recipe!'}
-                    </button>
-                    </div>
+                <SearchCard key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} />
+                <button
+                  disabled={savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)}
+                  className='btn-block btn-info'
+                  onClick={() => handleSaveRecipe(recipe.recipeId)}>
+                  {savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)
+                    ? 'This recipe has already been saved!'
+                    : 'Save this Recipe!'}
+                </button>
+              </div>
             ))}
           </figure>
         </div>
@@ -135,15 +135,15 @@ const SearchRecipes = () => {
             />
 
             {/* UiDropdown.js component is called */}
-            <UiDropdown /> 
+            <UiDropdown />
 
             <div className="flex justify-center">
               <button className=" bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">Search</button>
             </div>
-          
+
           </div>
- 
-        </form>           
+
+        </form>
 
       </div>
     </div>
