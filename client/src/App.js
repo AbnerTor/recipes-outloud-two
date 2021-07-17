@@ -13,12 +13,8 @@ import globalState from './utils/globalState'
 
 import HomeSignup from './pages/HomeSignup';
 import HomeSignin from './pages/HomeSignin';
-import Search from './pages/Search';
 import SearchRecipes from './pages/SearchRecipes';
-import Navbar from './components/Navbar';
-// import MySingle from './pages/MySingle';
 import MyCollection from './pages/MyCollection';
-// import SearchSingle from './pages/SearchSingle';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -55,8 +51,6 @@ function App() {
             <Route exact path='/me' component={MyCollection} />
 
             {/* <Route exact path='/collections/:username' component={MyCollection} /> */}
-
-            <Route exact path='/search' component={Search} />
 
             <Route exact path='/search-recipes' component={SearchRecipes} />
 
