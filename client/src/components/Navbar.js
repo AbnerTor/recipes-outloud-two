@@ -28,10 +28,12 @@ const Navbar = ({ toggle }) => {
             </>
           ) : (
             <>
+
               <Link className="btn btn-lg btn-info m-2 text-xl" to="/signin">
                 Sign in
               </Link>
               <Link className="btn btn-lg btn-light m-2 text-xl" to="/">
+
                 Sign up
               </Link>
             </>

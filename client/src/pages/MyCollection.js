@@ -14,6 +14,14 @@ import MyList from '../components/MyList';
 
 import { removeRecipeId } from '../utils/localStorage';
 
+// IMPORTANT NOTE: Pulling the URL link from recipe.title of the summarySearch 
+let recipeTitle = "Soy-and-Ginger-Glazed Salmon with Udon Noodles";
+let recipeIdNumber = 123456789
+const linkBody = recipeTitle.replace(/\s+/g, '-').toLowerCase();
+console.log(linkBody); // "soy-and-ginger-glazed-salmon-with-udon-noodles"
+const recipeURL = `https://spoonacular.com/${linkBody}-${recipeIdNumber}`
+// https://spoonacular.com/soy-and-ginger-glazed-salmon-with-udon-noodles-123456789
+
 const MyCollection = () => {
   const { username: userParam } = useParams();
 

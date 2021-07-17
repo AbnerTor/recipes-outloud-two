@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const SIGNIN_USER = gql`
   mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
+    signin(email: $email, password: $password) {
       token
       user {
         _id
@@ -15,10 +15,7 @@ export const SIGNIN_USER = gql`
           recipeId
           image
           title
-          authors
-          description
-          link
-          nutri
+
         }
       }
     }
@@ -59,10 +56,7 @@ export const ADD_USER = gql`
           recipeId
           image
           title
-          authors
-          description
-          link
-          nutri
+
         }
       }
     }
@@ -79,10 +73,7 @@ export const SAVE_RECIPE = gql`
         recipeId
         image
         title
-        authors
-        description
-        link
-        nutri
+
       }
     }
   }
@@ -98,10 +89,7 @@ export const REMOVE_RECIPE = gql`
         recipeId
         image
         title
-        authors
-        description
-        link
-        nutri
+
       }
     }
   }

@@ -1,53 +1,119 @@
-
-// NOTE TO TEAM: SEARCH.JS HAS ALL API SEARCH AND SAVE_RECIPE FUNCTIONALITY.
-
-import React, { useState, useEffect, useContext } from 'react';
+// NOTE TO TEAM: SEARCH.JS HAS API SEARCH AND SAVE_RECIPE FUNCTIONALITY.
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { SAVE_RECIPE } from '../utils/mutations';
-
 import Auth from '../utils/auth';
 
 import Header from '../components/Header';
 // import SearchCard from '../components/SearchCard';
 
+import UiDropdown from '../components/UiDropdown';
+
+
 import { searchByIngredient } from '../utils/API';
 import { searchRandomRecipe } from '../utils/API';
+import { complexSearch } from '../utils/API';
+// import { summarySearch } from '../utils/API';
+
 import { saveRecipeIds, getSavedRecipeIds } from '../utils/localStorage';
 import Navbar from '../components/Navbar';
 
 const Search = () => {
 
-  // create state for holding returned spoonacular api data
+  // state for spoonacular api data
   const [searchedRecipes, setSearchedRecipes] = useState([]);
+
   const [saveRecipe, { error, data }] = useMutation(SAVE_RECIPE);
 
-  // create state for holding our search field data
+  // state for search field data (entryA and entryB)
   const [searchInput, setSearchInput] = useState('');
 
-  // create state to hold saved recipeId values
+  // state for saved recipeId values (local storage)
   const [savedRecipeIds, setSavedRecipeIds] = useState(getSavedRecipeIds());
 
-  // set up useEffect hook to SAVE `savedRecipeIds` LIST TO LOCAL STORAGE on component unmount
-  // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
+
+  // ****** BROC'S searchRandom Code *****
   useEffect(() => {
     searchRandom();
     return () => saveRecipeIds(savedRecipeIds);
   }, [savedRecipeIds]);
 
-  // create function to SAVE A RECIPE to our database
+  async function searchRandom() {
+    try {
+      let recipeData;
+      await searchRandomRecipe()
+        .then(response => response.json())
+        .then(data => recipeData = data);
+
+      const recipes = recipeData.recipes.map((recipe) => ({
+        recipeId: recipe.id,
+        image: recipe.image || '',
+        title: recipe.title,
+      }));
+
+      console.log('Here are my recipe objects: ', recipes);
+      setSearchedRecipes(recipes);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+
+  // useEffect to SAVE `savedRecipeIds` LIST To Local Storage on component unmount
+  
+  // useEffect(() => {
+  //   return () => saveRecipeIds(savedRecipeIds);
+  // });
+
+  // SEARCH FOR RECIPES and set state on form submit
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // ***** Add searchInput to API call once mapping is working ***** //
+
+    // if (!searchInput) {
+    //   return false;
+    // }
+
+    // console.log(searchInput);
+
+    try {
+      let recipeData;
+      await searchByIngredient()
+        .then(response => response.json())
+        .then(data => recipeData = data);
+
+      console.log(recipeData);
+
+      const recipes = recipeData.map((recipe) => ({
+        recipeId: recipe.id,
+        image: recipe.image || '',
+        title: recipe.title,
+        // authors: recipe.authors || ['No author to display'],
+        // description: recipe.description,
+        // link: recipe.link,
+        // nutri: recipe.nutrition
+      }));
+
+      console.log('Recipe objects from form submit: ', recipes);
+      setSearchedRecipes(recipes);
+      // setSearchInput('');
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  // SAVE a recipe to MyCollection
   const handleSaveRecipe = async (recipeId) => {
     // find the recipe in `searchedRecipes` state by the matching id
     const recipeToSave = searchedRecipes.find((recipe) => recipe.recipeId === recipeId);
-
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     if (!token) {
       return false;
     }
-
     try {
-
       const { data } = await saveRecipe({
         variables: { input: recipeToSave },
       });
@@ -60,73 +126,15 @@ const Search = () => {
     }
   };
 
-  // create method to SEARCH FOR RECIPES and set state on form submit
-  async function searchRandom() {
-    try {
-      let recipeData;
-      await searchRandomRecipe()
-        .then(response => response.json())
-        .then(data => recipeData = data);
-
-      const recipes = recipeData.recipes.map((recipe) => ({
-        recipeId: recipe.id,
-        image: recipe.image || '',
-        title: recipe.title,
-        // authors: recipe.authors || ['No author to display'],
-        // description: recipe.description,
-        // link: recipe.link,
-        // nutri: recipe.nutrition
-      }));
-
-      console.log('Here are my recipe objects: ', recipes);
-      setSearchedRecipes(recipes);
-
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
-  const handleFormSubmit = async (event) => {
-    // event.preventDefault();
-
-    // if (!searchInput) {
-    //   return false;
-    // }
-
-    // try {
-    //   const response = await searchByIngredient(searchInput);
-
-    //   if (!response.ok) {
-    //     throw new Error('something went wrong!');
-    //   }
-
-    //   const { items } = await response.json();
-
-    //   const recipeData = items.map((recipe) => ({
-    //  recipeId: recipe.id,
-    //  image: recipe.image || '',
-    //  title: recipe.title,
-    //  authors: recipe.authors || ['No author to display'],
-    //  description: recipe.description,
-    //  link: recipe.link,
-    //  nutri: recipe.nutrition
-    //   }));
-
-    //   setSearchedRecipes(recipeData);
-    //   setSearchInput('');
-    // } catch (err) {
-    //   console.error(err);
-    // }
-  };
-
-
   // SEARCH PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea) 
   return (
     <>
+
       <div className="flex flex-row mr-40 ml-40">
 
         <section className="flex h-auto w-2/3" id="Search">
           <figure className="flex bg-green-200 w-full rounded pt-10">
+
             {searchedRecipes.map((recipe) => (
               `${recipe.title}, ${recipe.recipeId}, ${recipe.image}`
 
@@ -181,6 +189,7 @@ const Search = () => {
               </div>
             </form>
           </div>
+
         </div>
       </div>
     </>

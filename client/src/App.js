@@ -6,12 +6,15 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'; 
 
+import globalContext from './utils/globalContext'
+import globalState from './utils/globalState'
 
 import HomeSignup from './pages/HomeSignup';
 import HomeSignin from './pages/HomeSignin';
 import Search from './pages/Search';
+import SearchRecipes from './pages/SearchRecipes';
 import Navbar from './components/Navbar';
 // import MySingle from './pages/MySingle';
 import MyCollection from './pages/MyCollection';
@@ -38,6 +41,7 @@ const client = new ApolloClient({
 
 function App() {
   return (
+    <globalContext.Provider value={globalState()}>
     <ApolloProvider client={client}>
       {/* try this out! <Context created Provider> */}
       <Router>
@@ -52,11 +56,9 @@ function App() {
 
             {/* <Route exact path='/collections/:username' component={MyCollection} /> */}
 
-            {/* <Route exact path='/collections/:username/:recipeId' component={MySingle} /> */}
-
             <Route exact path='/search' component={Search} />
 
-            {/* <Route exact path='/search/:recipeId' component={SearchSingle} /> */}
+            <Route exact path='/search-recipes' component={SearchRecipes} />
 
             {/* <Route exact path='/features' component={HomeFeatures} /> */}
 
@@ -66,6 +68,7 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
+    </globalContext.Provider>
   );
 }
 

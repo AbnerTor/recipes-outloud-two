@@ -17,20 +17,14 @@ type User {
     recipeId: String!
     image: String!
     title: String!
-    authors: [String]   
-    description: String!
-    link: String
-    nutri: String
+
   }
 
   input RecipeInput {
     recipeId: String!
     image: String!
     title: String!
-    authors: [String]
-    description: String!
-    link: String
-    nutri: String
+
   } 
 
   type Comment {

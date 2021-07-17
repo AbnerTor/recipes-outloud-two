@@ -1,8 +1,29 @@
 // call spoonacular api
 export function searchRandomRecipe() {
-    return fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&number=5`);
+    return fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&number=4`);
   };
 
-  export const searchByIngredient = (query) => {
-    return fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ingredients=${query}`);
-  };
+// export const searchByIngredient = (query) => {
+//   return fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ingredients=${query}`);
+// };
+
+export function searchByIngredient() {
+  return fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&ingredients=chicken`);
+};
+
+// export function complexSearch(entryA) {
+//   return fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=3a5493c1e62a49d08a1e8e591a17b8d7&query=${entryA}`);
+// };
+
+export function complexSearch(entryA) {
+  return fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&query=${entryA}`);
+};
+
+
+export function complexSearchCal(entryA, entryB) {
+  return fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&query=${entryA}&maxCalories=${entryB}`);
+};
+
+export function summarySearch(id) {
+  return fetch(`https://api.spoonacular.com/recipes/${id}/summary?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
+};
