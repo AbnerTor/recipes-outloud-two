@@ -53,12 +53,10 @@ const SearchRecipes = () => {
 
       const { results } = await complexResponse.json();
 
-
       const complexData = results.map((recipe) => ({
         recipeId: recipe.id,
         title: recipe.title,
         image: recipe.image || '../../images/placeholder.jpg',
-        
       }));
 
       console.log(complexData);

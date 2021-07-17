@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { SAVE_RECIPE } from '../utils/mutations';
@@ -52,6 +53,15 @@ function SearchCard(props) {
   console.log(linkBody);
   const recipeURL = `https://spoonacular.com/${linkBody}-${props.id}`
   console.log(props.id);
+
+import '../App.css';
+
+function SearchCard(props) {
+// Creating the URL link from recipe.title of the complexSearch results 
+  const linkBody = props.title.replace(/\s+/g, '-').toLowerCase();
+  console.log(linkBody);
+  const recipeURL = `https://spoonacular.com/${linkBody}-${props.id}`
+  console.log('props: ', props.id);
 
   return (
     <div>

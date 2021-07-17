@@ -12,7 +12,6 @@ const recipeSchema = new Schema({
     image: {
         type: String,
     },
-
 });
 
 module.exports = recipeSchema;
