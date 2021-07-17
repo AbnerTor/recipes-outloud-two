@@ -60,7 +60,7 @@ const Signup = (props) => {
 
   return (
     <>
-      <div className="flex flex-row ml-40 mr-40">
+      <div className="flex flex-row mx-20">
       
         <HeaderHome />
         
