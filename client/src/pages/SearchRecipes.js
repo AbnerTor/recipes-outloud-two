@@ -6,7 +6,8 @@ import { SAVE_RECIPE } from '../utils/mutations';
 import Auth from '../utils/auth';
 import UiDropdown from '../components/UiDropdown';
 import SearchCard from '../components/SearchCard';
-import globalContext from '../utils/globalContext'
+import globalContext from '../utils/globalContext';
+import Navbar from '../components/Navbar';
 
 import { complexSearchCal } from '../utils/API';
 // import { summarySearch } from '../utils/API';
@@ -92,22 +93,24 @@ const SearchRecipes = () => {
   };
 
   return (
-    <div className="flex flex-row h-auto mr-40 ml-40">
+    <div className="flex h-auto mr-40 ml-40">
 
       <div className="flex h-auto w-2/3" id="Search">
         <div className="flex flex-col bg-green-200 w-full rounded h-auto">
-          <h2>
+
+          <h2 className="mt-10 ml-10 text-xl">
             {searchedRecipes.length
               ? `Viewing ${searchedRecipes.length} results:`
               : 'Welcome to the Search Page'}
           </h2>
-          <figure className="text-black">
+
+          <figure className="flex text-black flex-wrap justify-center">
             {searchedRecipes.map((recipe) => (
-              <div>
-                <SearchCard key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} />
+              <div className="flex flex-col items-center ">
+                <SearchCard className='' key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} />
                 <button
                   disabled={savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)}
-                  className='btn-block btn-info'
+                  className='bg-blue-800 rounded text-white w-1/4 clear-both'
                   onClick={() => handleSaveRecipe(recipe.recipeId)}>
                   {savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)
                     ? 'This recipe has already been saved!'
@@ -119,32 +122,37 @@ const SearchRecipes = () => {
         </div>
       </div>
 
-      <div className="flex flex-col w-1/3 bg-blue-200">
-        <h2>Search For Recipes Here!</h2>
-        <form onSubmit={handleFormSubmit} >
-          <div className="flex-row space-between my-2">
+      <div className="w-1/3" id="">
+        <Navbar />
+        <div className="flex flex-col bg-blue-200">
+          <h2 className="flex justify-center pt-2">Search For Recipes Here!</h2>
+          <form onSubmit={handleFormSubmit} >
+            <div className="flex-row space-between my-2">
+              <div className="flex flex-row justify-center ">
+                <label className="" for="complexSearch">Key Word:</label>
 
-            <label for="complexSearch">Key Word:</label>
+                <input
+                  className="form-input w-1/2 ml-2 rounded"
+                  type="text"
+                  placeholder=" soup?"
+                  value={inputA}
+                  onChange={(e) => setInputA(e.target.value)}
+                />
 
-            <input
-              className="form-input"
-              type="text"
-              placeholder="soup?"
-              value={inputA}
-              onChange={(e) => setInputA(e.target.value)}
-            />
+                {/* UiDropdown.js component is called */}
 
-            {/* UiDropdown.js component is called */}
-            <UiDropdown />
+              </div>
+              <UiDropdown />
 
-            <div className="flex justify-center">
-              <button className=" bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">Search</button>
+              <div className="flex justify-center mt-6 mb-5">
+                <button className=" bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">Search</button>
+              </div>
+
             </div>
 
-          </div>
+          </form>
 
-        </form>
-
+        </div>
       </div>
     </div>
   );
