@@ -27,6 +27,7 @@ const Signup = (props) => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
     setFormState({
       ...formState,
       [name]: value,
@@ -56,6 +57,7 @@ const Signup = (props) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log(formState);
 
     try {
       const mutationResponse = await addUser({
@@ -103,7 +105,7 @@ const Signup = (props) => {
 
           <div className="flex flex-col">
 
-            <h2 className="flex justify-center mr-8">Signup</h2>
+            <h2 className="flex justify-center mr-8">Sign up</h2>
 
             <form className="flex flex-col justify-center" onSubmit={handleFormSubmit}>
               {/* <div dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
@@ -116,8 +118,9 @@ const Signup = (props) => {
                 className="appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
                 placeholder="First"
                 name="firstName"
-                type="firstName"
+                type="text"
                 id="firstName"
+                value={formState.firstName}
                 onChange={handleChange}
               />
             </div>
@@ -128,8 +131,9 @@ const Signup = (props) => {
                 className="shadow appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
                 placeholder="Last"
                 name="lastName"
-                type="lastName"
+                type="text"
                 id="lastName"
+                value={formState.lastName}
                 onChange={handleChange}
               />
             </div>
@@ -140,8 +144,9 @@ const Signup = (props) => {
                 className="shadow appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
                 placeholder="Username"
                 name="username"
-                type="username"
+                type="text"
                 id="username"
+                value={formState.username}
                 onChange={handleChange}
               />
             </div>
@@ -154,6 +159,7 @@ const Signup = (props) => {
                 name="email"
                 type="email"
                 id="email"
+                value={formState.email}
                 onChange={handleChange}
               />
             </div>
@@ -166,6 +172,7 @@ const Signup = (props) => {
                 name="password"
                 type="password"
                 id="pwd"
+                value={formState.password}
                 onChange={handleChange}
               />
             </div>
