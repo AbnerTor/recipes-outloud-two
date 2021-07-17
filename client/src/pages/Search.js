@@ -4,7 +4,12 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { SAVE_RECIPE } from '../utils/mutations';
 import Auth from '../utils/auth';
+
+import Header from '../components/Header';
+// import SearchCard from '../components/SearchCard';
+
 import UiDropdown from '../components/UiDropdown';
+
 
 import { searchByIngredient } from '../utils/API';
 import { searchRandomRecipe } from '../utils/API';
@@ -12,6 +17,7 @@ import { complexSearch } from '../utils/API';
 // import { summarySearch } from '../utils/API';
 
 import { saveRecipeIds, getSavedRecipeIds } from '../utils/localStorage';
+import Navbar from '../components/Navbar';
 
 const Search = () => {
 
@@ -123,10 +129,12 @@ const Search = () => {
   // SEARCH PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea) 
   return (
     <>
-      <div className="flex flex-row mr-20 ml-20">
 
-        <section className="flex h-96 w-2/3" id="Search">
-          <figure className="flex bg-green-200 w-full rounded">
+      <div className="flex flex-row mr-40 ml-40">
+
+        <section className="flex h-auto w-2/3" id="Search">
+          <figure className="flex bg-green-200 w-full rounded pt-10">
+
             {searchedRecipes.map((recipe) => (
               `${recipe.title}, ${recipe.recipeId}, ${recipe.image}`
 
@@ -137,31 +145,51 @@ const Search = () => {
           </figure>
         </section>
 
+
         <div className="flex flex-col w-1/3 bg-blue-200">
-          <h2>Recipe Search</h2>
-          <form onSubmit={handleFormSubmit}>
 
-            <div className="flex-row space-between my-2">
+          <Navbar />
 
-            </div>
+          <div className="my-10">
+            <h2 className="flex justify-center">Recipe Search</h2>
+            <form onSubmit={handleFormSubmit} className="flex flex-col w-full items-center">
 
-            <div className="flex-row space-between my-2">
+              <div className="flex justify-center w-full space-between my-2">
+                <input
+                  className="flex justify-center appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline"
+                  placeholder="ingredient-one"
+                  name="ingredient-one"
+                  type="ingredient-one"
+                  id="ingredient-one"
+                />
+              </div>
 
-            </div>
+              <div className="flex justify-center w-full space-between my-2">
+                <input
+                  className="appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline"
+                  placeholder="ingredient-two"
+                  name="ingredient-two"
+                  type="ingredient-two"
+                  id="ingredient-two"
+                />
+              </div>
 
-            <div className="flex-row space-between my-2">
+              <div className="flex justify-center w-full space-between my-2">
+                <input
+                  className="appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline"
+                  placeholder="ingredient-three"
+                  name="ingredient-three"
+                  type="ingredient-three"
+                  id="ingredient-three"
+                />
+              </div>
 
-            </div>
+              <div className="">
+                <button className="flex justify-center bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">Submit Search</button>
+              </div>
+            </form>
+          </div>
 
-            <div className="flex-row space-between my-2">
-            </div>
-
-            <div className="flex justify-center">
-              <button className=" bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" type="submit">Submit Search</button>
-            </div>
-            {/* UiDropdown.js component is called */}
-            <UiDropdown />
-          </form>
         </div>
       </div>
     </>
