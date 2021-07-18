@@ -16,6 +16,8 @@ import HomeSignin from './pages/HomeSignin';
 import SearchRecipes from './pages/SearchRecipes';
 import MyCollection from './pages/MyCollection';
 
+import TestSpeakPage from './pages/TestSpeakPage';
+
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -54,6 +56,7 @@ function App() {
 
             <Route exact path='/search-recipes' component={SearchRecipes} />
 
+            <Route exact path='/recipes/:id' component={TestSpeakPage} />
             {/* <Route exact path='/features' component={HomeFeatures} /> */}
 
             {/* <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
