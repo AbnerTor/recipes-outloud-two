@@ -6,7 +6,7 @@ import { Redirect, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, GET_ME } from '../utils/queries';
 import { REMOVE_RECIPE } from '../utils/mutations';
-
+import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 import MyCard from '../components/MyCard';
 import Navbar from '../components/Navbar';
@@ -136,10 +136,15 @@ const MyCollection = () => {
 
               <button
                 // disabled={savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)}
-                className='bg-blue-800 rounded text-white w-1/4 clear-both'
+                className='bg-blue-800 rounded text-white w-1/3 clear-both'
                 onClick={(e) => handleGetSummary(e.target.recipeId)}> Summary
         
               </button>
+              <Link
+              className="bg-blue-800 rounded text-white text-center w-1/3 mt-2 content-center clear-both"
+              to={`/recipes/${recipe.recipeId}`}
+            >    View Recipe
+            </Link>
 
             </div>
           ))}
