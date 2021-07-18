@@ -1,5 +1,5 @@
 
-// NOTE TO TEAM: MYCOLLECTION.JS HAS REMOVE_RECIPE FUNCTIONALITY.
+// NOTE TO TEAM: MYCOLLECTION.JS HAS REMOVE_RECIPE and READ FUNCTIONALITY.
 
 import React, { useEffect, useState } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
@@ -8,21 +8,17 @@ import { QUERY_USER, GET_ME } from '../utils/queries';
 import { REMOVE_RECIPE } from '../utils/mutations';
 
 import Auth from '../utils/auth';
-
+import MyCard from '../components/MyCard';
 import Navbar from '../components/Navbar';
-import MyList from '../components/MyList';
+// import MyList from '../components/MyList';
+
+import { summarySearch } from '../utils/API';
 
 import { removeRecipeId } from '../utils/localStorage';
 
-// IMPORTANT NOTE: Pulling the URL link from recipe.title of the summarySearch 
-let recipeTitle = "Soy-and-Ginger-Glazed Salmon with Udon Noodles";
-let recipeIdNumber = 123456789
-const linkBody = recipeTitle.replace(/\s+/g, '-').toLowerCase();
-console.log(linkBody); // "soy-and-ginger-glazed-salmon-with-udon-noodles"
-const recipeURL = `https://spoonacular.com/${linkBody}-${recipeIdNumber}`
-// https://spoonacular.com/soy-and-ginger-glazed-salmon-with-udon-noodles-123456789
 
 const MyCollection = () => {
+
   const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : GET_ME, {
@@ -30,6 +26,7 @@ const MyCollection = () => {
   });
 
   const user = data?.me || data?.user || {};
+  
   // redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Redirect to="/me" />;
@@ -50,6 +47,37 @@ const MyCollection = () => {
     );
   }
 
+  const recipeId = user.savedRecipes.recipeId
+  console.log(user.savedRecipes);
+
+    // GET SUMMARY FROM API and set state on form submit
+    const handleGetSummary = async (event) => {
+      // event.preventDefault();
+  
+      try {
+        let summaryResponse = await summarySearch(recipeId);
+  
+        if (!summaryResponse.ok) {
+          throw new Error('something went wrong!');
+        }
+  
+        const { results } = await summaryResponse.json();
+  
+  
+        // const summaryData = results.map((recipe) => ({
+        //   recipeId: recipe.id,
+        //   title: recipe.title,
+        //   image: recipe.image || '../../images/placeholder.jpg',
+  
+        // }));
+  
+        console.log(results.summary);
+        // setSearchedRecipes(summaryData);
+        // setInputA('');
+      } catch (e) {
+        console.error(e);
+      }
+    };
 
   // // create function that accepts the recipe's mongo _id value as param and deletes the recipe from the database
   // const [removeRecipe] = useMutation(REMOVE_RECIPE);
@@ -82,13 +110,14 @@ const MyCollection = () => {
   return (
     <>
       <div>
-
+        <Navbar className="flex w-1/3 " />
         <h2 className="py-3 bg-red-400 text-xl flex justify-center">
           {user.savedRecipes.length
             ? `Viewing ${user.savedRecipes.length} saved ${user.savedRecipes.length === 1 ? 'recipe' : 'recipes'}:`
             : 'You have no saved recipes!'}
         </h2>
-        <div className="flex flex-row mr-20">
+
+        {/* <div className="flex flex-row mr-20">
           <div className="w-2/3 bg-green-400 text-xl ml-20 pl-5 pt-5">
             <MyList
               recipes={user.savedRecipes}
@@ -98,14 +127,30 @@ const MyCollection = () => {
             />
           </div>
           <Navbar className="flex w-1/3 " />
-        </div>
+        </div> */}
 
+        <figure className="flex text-black flex-wrap justify-center">
+          {user.savedRecipes.map((recipe) => (
+            <div className="flex flex-col items-center ">
+              <MyCard key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} summary={recipe.summary}/>
+
+              <button
+                // disabled={savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)}
+                className='bg-blue-800 rounded text-white w-1/4 clear-both'
+                onClick={(e) => handleGetSummary(e.target.recipeId)}> Summary
+        
+              </button>
+
+            </div>
+          ))}
+        </figure>
+        
       </div>
     </>
   );
 };
 
-
+export default MyCollection;
 
 
 // const { loading, error, data } = useQuery(QUERY_ME, {
@@ -116,4 +161,4 @@ const MyCollection = () => {
 // console.log(userData);
 
 
-export default MyCollection;
+

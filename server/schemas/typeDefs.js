@@ -14,7 +14,7 @@ type User {
 
   type Recipe {
     _id: ID!
-    recipeId: String!
+    recipeId: Int!
     image: String!
     title: String!
 

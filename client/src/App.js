@@ -41,7 +41,6 @@ function App() {
   return (
     <globalContext.Provider value={globalState()}>
     <ApolloProvider client={client}>
-      {/* try this out! <Context created Provider> */}
       <Router>
         <div className="flex flex-col w-full">
           <Switch>
@@ -52,7 +51,7 @@ function App() {
 
             <Route exact path='/me' component={MyCollection} />
 
-            {/* <Route exact path='/collections/:username' component={MyCollection} /> */}
+            <Route exact path='/collections/:username' component={MyCollection} />
 
             <Route exact path='/search-recipes' component={SearchRecipes} />
 
