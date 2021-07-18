@@ -38,18 +38,20 @@ const HeaderHome = () => {
 
 
     return (
+
         <div className="flex w-2/3 flex-col bg-blue-200 mb-10 pt-24 h-96">
-            
             <div>
-                <Link to='/' className='px-12 flex items-center'>
+                <Link to='/' className='px-12 flex'>
                     <IconContext.Provider value={{ color: 'green', size: '3.5rem' }}>
-                        <div>
+                        <div >
                             <GiCookingPot />
                         </div>
                     </IconContext.Provider>
-                    <h1 className='pl-4 text-green'>RECIPES OUTLOUD</h1>
+                    <h1 className='pl-4 pt-5 text-green'>RECIPES OUTLOUD</h1>
                 </Link>
-                <p className="pl-4">Expand Your Joy of Cooking!</p>
+                <p className="pl-14">Expand Your Joy of Cooking!</p>
+
+
             </div>
 
             <div className="flex flex-row mr-20 ml-20">

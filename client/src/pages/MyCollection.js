@@ -83,19 +83,23 @@ const MyCollection = () => {
     <>
       <div>
 
-        <h2>
+        <h2 className="py-3 bg-red-400 text-xl flex justify-center">
           {user.savedRecipes.length
             ? `Viewing ${user.savedRecipes.length} saved ${user.savedRecipes.length === 1 ? 'recipe' : 'recipes'}:`
             : 'You have no saved recipes!'}
         </h2>
-        <div>
-          <MyList
-            recipes={user.savedRecipes}
-            title={`${user.username}'s collection...`}
-            showTitle={false}
-            showUsername={false}
-          />
+        <div className="flex flex-row mr-20">
+          <div className="w-2/3 bg-green-400 text-xl ml-20 pl-5 pt-5">
+            <MyList
+              recipes={user.savedRecipes}
+              title={`${user.username}'s collection...`}
+              showTitle={false}
+              showUsername={false}
+            />
+          </div>
+          <Navbar className="flex w-1/3 " />
         </div>
+
       </div>
     </>
   );
