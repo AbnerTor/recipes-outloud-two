@@ -72,9 +72,11 @@ const SearchRecipes = () => {
 
   // SAVE a recipe to MyCollection
   const handleSaveRecipe = async (recipeId) => {
+    
     // find the recipe in `searchedRecipes` state by the matching id
     const recipeToSave = searchedRecipes.find((recipe) => recipe.recipeId === recipeId);
     // get token
+    console.log(recipeToSave);
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     if (!token) {
       return false;
@@ -107,15 +109,17 @@ const SearchRecipes = () => {
           <figure className="flex text-black flex-wrap justify-center">
             {searchedRecipes.map((recipe) => (
               <div className="flex flex-col items-center ">
-                <SearchCard className='' key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} />
+                <SearchCard key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} />
+
                 <button
-                  disabled={savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)}
+                  // disabled={savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)}
                   className='bg-blue-800 rounded text-white w-1/4 clear-both'
                   onClick={() => handleSaveRecipe(recipe.recipeId)}>
                   {savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)
                     ? 'This recipe has already been saved!'
                     : 'Save this Recipe!'}
                 </button>
+
               </div>
             ))}
           </figure>
