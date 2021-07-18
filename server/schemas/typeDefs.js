@@ -21,7 +21,7 @@ type User {
   }
 
   input RecipeInput {
-    recipeId: String!
+    recipeId: Int!
     image: String!
     title: String!
 
