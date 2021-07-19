@@ -52,7 +52,7 @@ type User {
 
     saveRecipe(input: RecipeInput): User
 
-    removeRecipe(recipeId: String!): User
+    removeRecipe(recipeId: Int!): User
   }
   `;
   module.exports = typeDefs;
