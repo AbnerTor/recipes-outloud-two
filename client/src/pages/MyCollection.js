@@ -26,7 +26,7 @@ const MyCollection = () => {
   });
 
   const user = data?.me || data?.user || {};
-  
+
   // redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Redirect to="/me" />;
@@ -46,38 +46,31 @@ const MyCollection = () => {
       </div>
     );
   }
-
-  const recipeId = user.savedRecipes.recipeId
+  
   console.log(user.savedRecipes);
 
-    // GET SUMMARY FROM API and set state on form submit
-    const handleGetSummary = async (event) => {
-      // event.preventDefault();
-  
-      try {
-        let summaryResponse = await summarySearch(recipeId);
-  
-        if (!summaryResponse.ok) {
-          throw new Error('something went wrong!');
-        }
-  
-        const { results } = await summaryResponse.json();
-  
-  
-        // const summaryData = results.map((recipe) => ({
-        //   recipeId: recipe.id,
-        //   title: recipe.title,
-        //   image: recipe.image || '../../images/placeholder.jpg',
-  
-        // }));
-  
-        console.log(results.summary);
-        // setSearchedRecipes(summaryData);
-        // setInputA('');
-      } catch (e) {
-        console.error(e);
-      }
-    };
+  // // GET SUMMARY FROM API 
+  // const handleGetSummary = async (recipeId) => {
+  //   // event.preventDefault();
+
+  //   try {
+  //     let summaryResponse = await summarySearch(recipeId);
+
+  //     if (!summaryResponse.ok) {
+  //       throw new Error('something went wrong!');
+  //     }
+
+  //     const summary = await summaryResponse.json();
+
+  //     console.log(summary);
+  //     // setSearchedRecipes(summaryData);
+  //     // setInputA('');
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // };
+
+
 
   // // create function that accepts the recipe's mongo _id value as param and deletes the recipe from the database
   // const [removeRecipe] = useMutation(REMOVE_RECIPE);
@@ -132,24 +125,24 @@ const MyCollection = () => {
         <figure className="flex text-black flex-wrap justify-center">
           {user.savedRecipes.map((recipe) => (
             <div className="flex flex-col items-center ">
-              <MyCard key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} summary={recipe.summary}/>
 
-              <button
-                // disabled={savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)}
+              <MyCard key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} summary={recipe.summary} />
+
+              {/* <button
                 className='bg-blue-800 rounded text-white w-1/3 clear-both'
-                onClick={(e) => handleGetSummary(e.target.recipeId)}> Summary
-        
-              </button>
+                onClick={() => handleGetSummary(recipe.recipeId)}>Nutshell View
+              </button> */}
+            
               <Link
-              className="bg-blue-800 rounded text-white text-center w-1/3 mt-2 content-center clear-both"
-              to={`/recipes/${recipe.recipeId}`}
-            >    View Recipe
-            </Link>
+                className="bg-blue-800 rounded text-white text-center w-1/3 mt-2 content-center clear-both"
+                to={`/recipes/${recipe.recipeId}`}
+              >    View + Hear
+              </Link>
 
             </div>
           ))}
         </figure>
-        
+
       </div>
     </>
   );

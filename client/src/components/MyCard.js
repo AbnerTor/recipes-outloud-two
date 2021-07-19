@@ -20,9 +20,9 @@ function MyCard(props) {
           </div>
         </a>
         <a className="flex flex-col items-center pt-3 mx-2 justify-center rounded-lg" href={recipeURL} target="blank">
-          <div className="bg-yellow-400 w-full flex justify-center">
+          {/* <div className="bg-yellow-400 w-full flex justify-center">
             <p className=" py-4" >{props.summary}</p>
-          </div>
+          </div> */}
         </a>
       </div>
     </div>
