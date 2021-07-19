@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import placeholder from '../images/placeholder.jpg';
 
 function SearchCard(props) {
 // Creating the URL link from recipe.title of the complexSearch results 
@@ -16,7 +17,7 @@ function SearchCard(props) {
             <h4 className=" py-4" >{props.title}</h4>
           </div>
           <div className="mb-2">
-            <img className="rounded-md h-54" src={props.image} alt={`Recipe ${props.id}`} />
+            <img className="rounded-md h-54" src={props.image} onError={(e)=>{e.target.onerror = null; e.target.src=placeholder}} alt={`Recipe ${props.id}`} />
           </div>
         </a>
       </div>
