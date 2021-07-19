@@ -92,15 +92,15 @@ const MyCollection = () => {
               
               <MyCard key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} summary={recipe.summary} />
 
-              <div>
+              <div className="flex justify-center">
                 <Link
-                  className="bg-green-800 rounded text-white text-center w-1/3 mt-2 content-center clear-both"
+                  className="bg-green-800 rounded text-white text-center m-1 content-center clear-both p-2 px-1"
                   to={`/recipes/${recipe.recipeId}`}
                 >    View + Hear
                 </Link>
 
                 <button
-                  className='bg-red-800 rounded text-white w-1/3 clear-both'
+                  className='bg-red-800 rounded text-white clear-both p-2 m-1'
                   onClick={() => handleDeleteRecipe(recipe.recipeId)}>Remove
                 </button>
               </div>
