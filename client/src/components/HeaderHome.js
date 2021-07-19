@@ -54,11 +54,12 @@ const HeaderHome = () => {
                 <p className="pl-14">Expand Your Joy of Cooking!</p>
             </div>
 
-            <div className="flex flex-row mr-20 ml-20">
+            <div className="flex flex-row">
+
                 <section className="flex h-96" id="Search">
                     <figure className="flex rounded">
                         {searchedRecipes.map((recipe) => (
-                        <SearchCard key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} />
+                        <SearchCard className="" key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} />
                         ))}
                     </figure>
                 </section>
