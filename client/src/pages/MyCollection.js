@@ -26,6 +26,7 @@ const MyCollection = () => {
   });
 
   const user = data?.me || data?.user || {};
+  const [removeRecipe] = useMutation(REMOVE_RECIPE);
 
   // redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -46,60 +47,36 @@ const MyCollection = () => {
       </div>
     );
   }
-  
+
   console.log(user.savedRecipes);
 
-  // // GET SUMMARY FROM API 
-  // const handleGetSummary = async (recipeId) => {
-  //   // event.preventDefault();
+  // // create function that accepts the recipe's mongo _id value as param and deletes the recipe from the database  
 
-  //   try {
-  //     let summaryResponse = await summarySearch(recipeId);
+  const handleDeleteRecipe = async (recipeId) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    if (!token) {
+      return false;
+    }
+    try {
+      // removeRecipe is sent to Apollo Server
+      const { data } = await removeRecipe({
+        variables: { recipeId },
+      });
 
-  //     if (!summaryResponse.ok) {
-  //       throw new Error('something went wrong!');
-  //     }
+      // upon success, remove recipe's id from localStorage
+      removeRecipeId(recipeId);
 
-  //     const summary = await summaryResponse.json();
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
-  //     console.log(summary);
-  //     // setSearchedRecipes(summaryData);
-  //     // setInputA('');
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  // };
-
+  // if data isn't here yet, say so
+  if (loading) {
+    return <h2>LOADING...</h2>;
+  }
 
 
-  // // create function that accepts the recipe's mongo _id value as param and deletes the recipe from the database
-  // const [removeRecipe] = useMutation(REMOVE_RECIPE);
-
-  // const handleDeleteRecipe = async (recipeId) => {
-  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
-  //   if (!token) {
-  //     return false;
-  //   }
-  //   try {
-  // // removeRecipe is sent to Apollo Server
-  //   const { data } = await removeRecipe({
-  //     variables: { recipeId },
-  //   });
-
-  //   // upon success, remove recipe's id from localStorage
-  //     removeRecipeId(recipeId);
-
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-
-  // // if data isn't here yet, say so
-  // if (loading) {
-  //   return <h2>LOADING...</h2>;
-  // }
-
-  // MYCOLLECTION PAGE AND ITS COMPONENTS WILL BE DESIGNED (At the moment it is arbitrarily set to give an idea)
   return (
     <>
       <div>
@@ -109,40 +86,28 @@ const MyCollection = () => {
             ? `Viewing ${user.savedRecipes.length} saved ${user.savedRecipes.length === 1 ? 'recipe' : 'recipes'}:`
             : 'You have no saved recipes!'}
         </h2>
-
-        {/* <div className="flex flex-row mr-20">
-          <div className="w-2/3 bg-green-400 text-xl ml-20 pl-5 pt-5">
-            <MyList
-              recipes={user.savedRecipes}
-              title={`${user.username}'s collection...`}
-              showTitle={false}
-              showUsername={false}
-            />
-          </div>
-          <Navbar className="flex w-1/3 " />
-        </div> */}
-
         <figure className="flex text-black flex-wrap justify-center">
           {user.savedRecipes.map((recipe) => (
             <div className="flex flex-col items-center ">
-
+              
               <MyCard key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} summary={recipe.summary} />
 
-              {/* <button
-                className='bg-blue-800 rounded text-white w-1/3 clear-both'
-                onClick={() => handleGetSummary(recipe.recipeId)}>Nutshell View
-              </button> */}
-            
-              <Link
-                className="bg-blue-800 rounded text-white text-center w-1/3 mt-2 content-center clear-both"
-                to={`/recipes/${recipe.recipeId}`}
-              >    View + Hear
-              </Link>
+              <div>
+                <Link
+                  className="bg-green-800 rounded text-white text-center w-1/3 mt-2 content-center clear-both"
+                  to={`/recipes/${recipe.recipeId}`}
+                >    View + Hear
+                </Link>
 
+                <button
+                  className='bg-red-800 rounded text-white w-1/3 clear-both'
+                  onClick={() => handleDeleteRecipe(recipe.recipeId)}>Remove
+                </button>
+              </div>
+              
             </div>
           ))}
         </figure>
-
       </div>
     </>
   );
