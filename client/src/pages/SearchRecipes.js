@@ -10,7 +10,7 @@ import globalContext from '../utils/globalContext';
 import Navbar from '../components/Navbar';
 
 import { complexSearchCal } from '../utils/API';
-// import { summarySearch } from '../utils/API';
+
 
 import { saveRecipeIds, getSavedRecipeIds } from '../utils/localStorage';
 
