@@ -9,7 +9,7 @@ const Navbar = ({ toggle }) => {
     Auth.logout();
   };
   return (
-    <div className='flex flex-row justify-end bg-red-400 text-black font-mono w-1/3 justify-center py-5'>
+    <div className='flex flex-row justify-end bg-red-400 text-black font-mono w-full justify-center py-5'>
 
       <div className='flex justify-end items-center h-16 relative underline'>
 

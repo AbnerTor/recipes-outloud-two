@@ -95,7 +95,7 @@ const SearchRecipes = () => {
   };
 
   return (
-    <div className="flex h-auto mr-40 ml-40">
+    <div className="flex h-auto mr-40 ml-40 pb-10">
 
       <div className="flex h-auto w-2/3" id="Search">
         <div className="flex flex-col bg-green-200 w-full rounded h-auto">
@@ -113,10 +113,10 @@ const SearchRecipes = () => {
 
                 <button
                   // disabled={savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)}
-                  className='bg-blue-800 rounded text-white w-1/4 clear-both'
+                  className='bg-blue-800 rounded text-white w-1/3 clear-both mb-10'
                   onClick={() => handleSaveRecipe(recipe.recipeId)}>
                   {savedRecipeIds?.some((savedRecipeId) => savedRecipeId === recipe.recipeId)
-                    ? 'This recipe has already been saved!'
+                    ? 'Recipe has been saved!'
                     : 'Save this Recipe!'}
                 </button>
 
