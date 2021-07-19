@@ -16,14 +16,19 @@ const Navbar = ({ toggle }) => {
         <div>
           {Auth.loggedIn() ? (
             <>
-              <div className='pr-8 md:block  hidden'>
-                <Link to='/me' className='p-4 text-lg'>
+              <div className='pr-8 md:block  hidden flex items-center'>
+
+                <Link to='/me' className='p-4 text-lg ml-10'>
                   {Auth.getProfile().data.username}'s profile
                 </Link>
                 <button className="btn btn-lg btn-light m-2 text-base underline text-lg" onClick={logout}>Sign out</button>
 
-                <Link className="text-base text-lg"to='/about' className='p-4'>
+                <Link className="text-lg p-4 ml-20" to='/about'>
                   About
+                </Link>
+
+                <Link className="text-lg p-4" to='/search-recipes'>
+                  Search
                 </Link>
               </div>
             </>
