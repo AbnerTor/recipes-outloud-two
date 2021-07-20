@@ -9,25 +9,25 @@ const Navbar = ({ toggle }) => {
     Auth.logout();
   };
   return (
-    <div className='flex flex-row justify-end bg-red-400 text-black font-mono w-full justify-center py-5'>
+    <div className='flex flex-row justify-center bg-bRed text-black font-mono w-full justify-center py-5 font-mono'>
 
-      <div className='flex justify-end items-center h-16 relative underline'>
+      <div className='flex justify-end items-center h-16 relative underline font-mono'>
 
         <div>
           {Auth.loggedIn() ? (
             <>
-              <div className='pr-8 md:block  hidden flex items-center'>
+              <div className='pr-8 md:block  hidden flex justify-center'>
 
-                <Link to='/me' className='p-4 text-lg ml-10'>
+                <Link to='/me' className='p-4 text-lg ml-10 font-mono'>
                   {Auth.getProfile().data.username}'s profile
                 </Link>
                 <button className="btn btn-lg btn-light m-2 text-base underline text-lg" onClick={logout}>Sign out</button>
 
-                <Link className="text-lg p-4 ml-20" to='/about'>
+                <Link className="text-lg p-4 ml-20 font-mono" to='/about'>
                   About
                 </Link>
 
-                <Link className="text-lg p-4" to='/search-recipes'>
+                <Link className="text-lg p-4 font-mono" to='/search-recipes'>
                   Search
                 </Link>
               </div>
@@ -35,10 +35,10 @@ const Navbar = ({ toggle }) => {
           ) : (
             <>
 
-              <Link className="btn btn-lg btn-info m-2 text-xl underline" to="/signin">
+              <Link className="btn btn-lg btn-info m-2 text-xl underline font-mono" to="/signin">
                 Sign in
               </Link>
-              <Link className="btn btn-lg btn-light m-2 text-xl underline" to="/">
+              <Link className="btn btn-lg btn-light m-2 text-xl underline font-mono" to="/">
 
                 Sign up
               </Link>

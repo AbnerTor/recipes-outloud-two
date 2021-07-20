@@ -52,23 +52,23 @@ const Signin = (props) => {
   };
 
   return (
-    <div className="flex flex-row ml-40 mr-40">
+    <div className="flex flex-row mx-32">
 
       <HeaderHome />
 
 
-      <div className="flex flex-col w-1/3 bg-green-200 justify-start pb-8 rounded">
+      <div className="flex flex-col w-1/3 bg-wYellow justify-start pb-8 rounded">
 
         <Navbar />
 
 
         {/* <Link className="w-full underline ml-8" to="/">← Go to Sign up</Link> */}
 
-        <h2 className="flex justify-center mr-8">Sign in</h2>
+        <h2 className="flex justify-center mr-8 font-mono">Sign in</h2>
         <form onSubmit={handleFormSubmit}>
 
-          <div className="flex flex-col space-between ml-10">
-            <label htmlFor="email">Email address:</label>
+          <div className="flex flex-col space-between ml-10 font-mono">
+            <label className="font-mono" htmlFor="email">Email address:</label>
             <input
               className="shadow appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
               placeholder="youremail@test.com"
@@ -81,7 +81,7 @@ const Signin = (props) => {
           </div>
 
           <div className="flex flex-col space-between ml-10">
-            <label htmlFor="pwd">Password:</label>
+            <label className="font-mono" htmlFor="pwd">Password:</label>
             <input
               className="shadow appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
               placeholder="******"
