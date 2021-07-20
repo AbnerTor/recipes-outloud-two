@@ -47,9 +47,9 @@ function App() {
         <div className="flex flex-col w-full">
           <Switch>
 
-            {/* <Route exact path='/' render={props => (false ? <Redirect to="/me" /> : <Redirect to="/signup" /> 
-            )}/>  */}
-            <Route exact path='/signup' component={HomeSignup} />
+            <Route exact path='/' render={props => (Auth.loggedIn ? <Redirect to="/me" /> : <Redirect to="/" /> 
+            )}/> 
+            {/* <Route exact path='/' component={HomeSignup} /> */}
 
             <Route exact path='/signin' component={HomeSignin} />
 
