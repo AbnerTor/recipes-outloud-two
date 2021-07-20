@@ -56,6 +56,7 @@ const Signup = (props) => {
       firstName: '',
       lastName: '',
     });
+    window.location.assign('/me');
   };
 
   return (
@@ -67,11 +68,6 @@ const Signup = (props) => {
         <div className="flex flex-col w-1/3 bg-green-200 justify-start pb-8 rounded  bg-wYellow">
 
           <Navbar />
-
-          <div className="flex flex-row">
-            <Link className="w-full underline ml-8 mt-2 font-mono text-lg" to="/search-recipes"> Go to Search</Link>
-          </div>
-
 
           <div className="flex flex-col">
 

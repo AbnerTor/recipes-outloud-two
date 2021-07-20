@@ -24,14 +24,14 @@ export function summarySearch(id) {
 
 
 
-export function recipeStepsById(id) {
-  return fetch(`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
+export function recipeInformation(id) {
+  return fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
 };
 
-export function recipeIngredientsById(id) {
-  return fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
-};
+// export function recipeIngredientsById(id) {
+//   return fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
+// };
 
-export function recipeSummaryById(id) {
-  return fetch(`https://api.spoonacular.com/recipes/${id}/summary?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
-};
+// export function recipeSummaryById(id) {
+//   return fetch(`https://api.spoonacular.com/recipes/${id}/summary?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
+// };

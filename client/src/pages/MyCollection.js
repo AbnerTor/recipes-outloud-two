@@ -1,5 +1,5 @@
 
-// NOTE TO TEAM: MYCOLLECTION.JS HAS REMOVE_RECIPE and READ FUNCTIONALITY.
+// NOTE TO TEAM: MYCOLLECTION.JS HAS REMOVE_RECIPE FUNCTIONALITY.
 
 import React, { useEffect, useState } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
@@ -10,12 +10,8 @@ import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 import MyCard from '../components/MyCard';
 import Navbar from '../components/Navbar';
-// import MyList from '../components/MyList';
-
-import { summarySearch } from '../utils/API';
 
 import { removeRecipeId } from '../utils/localStorage';
-
 
 const MyCollection = () => {
 
@@ -114,14 +110,5 @@ const MyCollection = () => {
 };
 
 export default MyCollection;
-
-
-// const { loading, error, data } = useQuery(QUERY_ME, {
-//   fetchPolicy: 'network-only'
-// });
-// const userData = data?.me || [];
-// // userData has the savedRecipes array
-// console.log(userData);
-
 
 

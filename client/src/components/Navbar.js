@@ -16,14 +16,14 @@ const Navbar = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
-              <div className='pr-8 md:block  hidden flex justify-center'>
+              <div className='pr-8 md:block flex items-center'>
 
                 <Link to='/me' className='p-4 text-lg ml-10 font-mono'>
                   {Auth.getProfile().data.username}'s profile
                 </Link>
                 <button className="btn btn-lg btn-light m-2 text-base underline text-lg" onClick={logout}>Sign out</button>
 
-                <Link className="text-lg p-4 ml-20 font-mono" to='/about'>
+                <Link className="text-lg p-4 ml-2 md:ml-20" to='/features'>
                   About
                 </Link>
 

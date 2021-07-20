@@ -41,7 +41,7 @@ const HeaderHome = () => {
 
     return (
 
-        <div className="flex w-3/4 flex-col bg-darkBlue mb-10 pt-5 h-full">
+        <div className="flex w-3/4 flex-col bg-darkBlue  h-screen">
             <div>
                 <Link to='/' className='px-12 flex'>
                     <IconContext.Provider value={{ color: 'green', size: '5.5rem' }}>

@@ -38,14 +38,14 @@ GIVEN a Recipes Outloud App:<br>
 Screenshot that shows the app's wireframe:<br>
 <br>
 
-![alt text](client/images/scrshot-wireframe.png)
+![alt text](client/src/images/scrshot-wireframe.png)
 <br>
 <br>
 
 Screenshot that shows the full generated web page:<br>
 <br>
 
-![alt text](client/images/scrshot-home.png)
+![alt text](client/src/images/scrshot-home.png)
 <br>
 <br>
 <br>
