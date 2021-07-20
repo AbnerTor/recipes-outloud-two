@@ -46,7 +46,7 @@ function App() {
         <div className="flex flex-col w-full">
           <Switch>
 
-            <Route exact path='/' component={HomeSignup} />
+            <Route exact path={process.env.PUBLIC_URL + '/'} component={HomeSignup} />
 
             <Route exact path='/signin' component={HomeSignin} />
 
