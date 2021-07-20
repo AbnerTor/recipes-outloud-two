@@ -60,32 +60,32 @@ const Signup = (props) => {
 
   return (
     <>
-      <div className="flex flex-row mx-20">
-      home sign up works
+      <div className="flex flex-row mx-32">
+      
         <HeaderHome />
         
-        <div className="flex flex-col w-1/3 bg-green-200 justify-start pb-8 rounded ">
+        <div className="flex flex-col w-1/3 bg-green-200 justify-start pb-8 rounded  bg-wYellow">
 
           <Navbar />
 
           <div className="flex flex-row">
-            <Link className="w-full underline ml-8" to="/search-recipes"> Go to Search</Link>
+            <Link className="w-full underline ml-8 mt-2 font-mono text-lg" to="/search-recipes"> Go to Search</Link>
           </div>
 
 
           <div className="flex flex-col">
 
-            <h2 className="flex justify-center mr-8">Sign up</h2>
+            <h2 className="flex justify-center mr-8 font-mono text-xl">Sign up</h2>
 
             <form className="flex flex-col justify-center" onSubmit={handleFormSubmit}>
               {/* <div dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
             Something went wrong with your signup!
            </div> */}
-              <div className="flex flex-col ml-10 ">
-                <label className=""
+              <div className="flex flex-col ml-10 font-mono bg-">
+                <label className="font-mono"
                   htmlFor="firstName">First Name:</label>
                 <input
-                  className="appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
+                  className="font-mono appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
                   placeholder="First"
                   name="firstName"
                   type="text"
@@ -96,7 +96,7 @@ const Signup = (props) => {
               </div>
 
               <div className="flex flex-col space-between ml-10">
-                <label htmlFor="lastName">Last Name:</label>
+                <label className="font-mono" htmlFor="lastName">Last Name:</label>
                 <input
                   className="shadow appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
                   placeholder="Last"
@@ -109,7 +109,7 @@ const Signup = (props) => {
               </div>
 
               <div className="flex flex-col space-between ml-10">
-                <label htmlFor="username">Username:</label>
+                <label className="font-mono" htmlFor="username">Username:</label>
                 <input
                   className="shadow appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
                   placeholder="Username"
@@ -122,7 +122,7 @@ const Signup = (props) => {
               </div>
 
               <div className="flex flex-col space-between ml-10">
-                <label htmlFor="email">Email:</label>
+                <label className="font-mono" htmlFor="email">Email:</label>
                 <input
                   className="shadow appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
                   placeholder="youremail@test.com"
@@ -135,7 +135,7 @@ const Signup = (props) => {
               </div>
 
               <div className="flex flex-col space-between ml-10">
-                <label htmlFor="pwd">Password:</label>
+                <label className="font-mono" htmlFor="pwd">Password:</label>
                 <input
                   className="shadow appearance-none border rounded w-3/4 py-2 px-3 text grey-300 leading-tight focus:outline-none focus:shadow-outline ml-2"
                   placeholder="******"

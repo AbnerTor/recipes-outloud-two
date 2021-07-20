@@ -40,7 +40,7 @@ const MyCollection = () => {
   if (!user?.username) {
     return (
       <div>
-        <h4 className="bg-yellow-400 text-xl flex justify-center py-5">
+        <h4 className="bg-yellow-400 text-xl flex justify-center py-5 font-mono">
           You need to be logged in to see this. Please use the navigation links above to sign up or sign in!
         </h4>
         <Navbar />
@@ -81,7 +81,7 @@ const MyCollection = () => {
     <>
       <div>
         <Navbar className="flex w-1/3 " />
-        <h2 className="py-3 bg-red-400 text-xl flex justify-center">
+        <h2 className="py-3 bg-red-400 text-xl flex justify-center font-mono">
           {user.savedRecipes.length
             ? `Viewing ${user.savedRecipes.length} saved ${user.savedRecipes.length === 1 ? 'recipe' : 'recipes'}:`
             : 'You have no saved recipes!'}

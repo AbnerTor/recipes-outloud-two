@@ -17,6 +17,7 @@ import HomeSignin from './pages/HomeSignin';
 import SearchRecipes from './pages/SearchRecipes';
 import MyCollection from './pages/MyCollection';
 import Summary from './pages/Summary';
+import HomeFeatures from './pages/HomeFeatures';
 import TestSpeakPage from './pages/TestSpeakPage';
 
 const httpLink = createHttpLink({
@@ -54,7 +55,7 @@ function App() {
 
             <Route exact path='/me' component={MyCollection} />
 
-            <Route exact path='/collections/:username' component={MyCollection} />
+            {/* <Route exact path='/collections/:username' component={MyCollection} /> */}
 
             <Route exact path='/search-recipes' component={SearchRecipes} />
 {/* 
@@ -62,7 +63,7 @@ function App() {
 
             <Route exact path='/recipes/:id' component={Summary} />
 
-            {/* <Route exact path='/features' component={HomeFeatures} /> */}
+            <Route exact path='/features' component={HomeFeatures} />
 
             {/* <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
 
