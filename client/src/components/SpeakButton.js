@@ -10,7 +10,7 @@ function SpeakButton(props) {
 
         <button
 
-            className='bg-blue-800 rounded text-white w-1/4 clear-both'
+            className='bg-blue-800 rounded text-white w-40 clear-both'
             onClick={() => speak(wordsToSpeak)}>
             Out-Loud
         </button>
