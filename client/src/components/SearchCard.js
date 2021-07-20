@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import placeholder from '../images/placeholder.jpg';
 
 function SearchCard(props) {
   // Creating the URL link from recipe.title of the complexSearch results 
@@ -9,6 +10,7 @@ function SearchCard(props) {
   console.log('props: ', props.id);
 
   return (
+
 
     <div className="flex flex-row items-start mt-10 w-1/4">
       <a className="flex flex-col items-center pt-3 mx-2 justify-center rounded-lg" href={recipeURL} target="blank">
