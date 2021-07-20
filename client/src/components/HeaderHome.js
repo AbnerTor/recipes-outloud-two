@@ -5,6 +5,8 @@ import { GiCookingPot } from 'react-icons/gi';
 import { IoMenuOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
+import placeholder from '../images/placeholder.jpg';
+
 import { searchRandomRecipe } from '../utils/API';
 import SearchCard from '../components/SearchCard';
 
@@ -27,10 +29,10 @@ const HeaderHome = () => {
         const recipes = recipeData.recipes.map((recipe) => ({
             recipeId: recipe.id,
             title: recipe.title,
-            image: recipe.image || '../../images/placeholder.jpg',
+            image: recipe.image || placeholder,
         }));
         setSearchedRecipes(recipes);
-
+        console.log(recipes);
         } catch (e) {
         console.error(e);
         }
@@ -50,8 +52,6 @@ const HeaderHome = () => {
                     <h1 className='pl-4 pt-5 text-green'>RECIPES OUTLOUD</h1>
                 </Link>
                 <p className="pl-14">Expand Your Joy of Cooking!</p>
-
-
             </div>
 
             <div className="flex flex-row">
