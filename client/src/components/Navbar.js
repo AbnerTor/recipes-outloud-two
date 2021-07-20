@@ -23,7 +23,7 @@ const Navbar = ({ toggle }) => {
                 </Link>
                 <button className="btn btn-lg btn-light m-2 text-base underline text-lg" onClick={logout}>Sign out</button>
 
-                <Link className="text-lg p-4 ml-2 md:ml-20" to='/about'>
+                <Link className="text-lg p-4 ml-2 md:ml-20" to='/features'>
                   About
                 </Link>
 
