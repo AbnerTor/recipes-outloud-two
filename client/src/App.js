@@ -18,7 +18,8 @@ import SearchRecipes from './pages/SearchRecipes';
 import MyCollection from './pages/MyCollection';
 import Summary from './pages/Summary';
 import HomeFeatures from './pages/HomeFeatures';
-import TestSpeakPage from './pages/TestSpeakPage';
+
+import Instructions from './pages/Instructions';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -50,6 +51,7 @@ function App() {
             <Route exact path='/' render={props => (Auth.loggedIn ? <Redirect to="/me" /> : <Redirect to="/" /> 
             )}/> 
             {/* <Route exact path='/' component={HomeSignup} /> */}
+            <Route exact path={process.env.PUBLIC_URL + '/'} component={HomeSignup} />
 
             <Route exact path='/signin' component={HomeSignin} />
 
@@ -61,7 +63,7 @@ function App() {
 {/* 
             <Route exact path='/recipes/:id' component={TestSpeakPage} /> */}
 
-            <Route exact path='/recipes/:id' component={Summary} />
+            <Route exact path='/recipes/:id' component={Instructions} />
 
             <Route exact path='/features' component={HomeFeatures} />
 
