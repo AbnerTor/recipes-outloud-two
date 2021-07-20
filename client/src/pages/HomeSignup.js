@@ -61,7 +61,7 @@ const Signup = (props) => {
   return (
     <>
       <div className="flex flex-row mx-20">
-      
+      home sign up works
         <HeaderHome />
         
         <div className="flex flex-col w-1/3 bg-green-200 justify-start pb-8 rounded ">

@@ -3,7 +3,7 @@ import { IconContext } from "react-icons";
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 // *toggle here is experimental at the moment - new push
-const Navbar = ({ toggle }) => {
+const Navbar = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();

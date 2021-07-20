@@ -7,7 +7,8 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'; 
-
+import { Redirect } from 'react-router';
+import Auth from '../src/utils/auth';
 import globalContext from './utils/globalContext'
 import globalState from './utils/globalState'
 
@@ -45,7 +46,9 @@ function App() {
         <div className="flex flex-col w-full">
           <Switch>
 
-            <Route exact path='/' component={HomeSignup} />
+            {/* <Route exact path='/' render={props => (false ? <Redirect to="/me" /> : <Redirect to="/signup" /> 
+            )}/>  */}
+            <Route exact path='/signup' component={HomeSignup} />
 
             <Route exact path='/signin' component={HomeSignin} />
 
