@@ -41,25 +41,27 @@ const HeaderHome = () => {
 
     return (
 
-        <div className="flex w-2/3 flex-col bg-blue-200 mb-10 pt-24 h-96">
+        <div className="flex w-3/4 flex-col bg-darkBlue mb-10 pt-5 h-full">
             <div>
                 <Link to='/' className='px-12 flex'>
-                    <IconContext.Provider value={{ color: 'green', size: '3.5rem' }}>
-                        <div >
+                    <IconContext.Provider value={{ color: 'green', size: '5.5rem' }}>
+                        <div>
                             <GiCookingPot />
                         </div>
                     </IconContext.Provider>
-                    <h1 className='pl-4 pt-5 text-green'>RECIPES OUTLOUD</h1>
+                    <h1 className='pl-4 pt-5 text-offWhite font-landing text-6xl '>RECIPES OUTLOUD</h1>
                 </Link>
-                <p className="pl-14">Expand Your Joy of Cooking!</p>
+
+                <p className="pl-14 text-lg text-offWhite font-mono">Expand Your Joy of Cooking!</p>
+
             </div>
 
             <div className="flex flex-row">
 
-                <section className="flex h-96" id="Search">
+                <section className="flex h-96 mx-5" id="Search">
                     <figure className="flex rounded">
                         {searchedRecipes.map((recipe) => (
-                        <SearchCard className="" key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} />
+                        <SearchCard className="flex justify-center w-1/4" key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} />
                         ))}
                     </figure>
                 </section>

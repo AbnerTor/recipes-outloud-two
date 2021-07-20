@@ -98,12 +98,12 @@ const SearchRecipes = () => {
     <div className="flex h-auto mr-40 ml-40 pb-10">
 
       <div className="flex h-auto w-2/3" id="Search">
-        <div className="flex flex-col bg-green-200 w-full rounded h-auto">
+        <div className="flex flex-col bg-darkBlue w-full rounded h-auto">
 
-          <h2 className="mt-10 ml-10 text-xl">
+          <h2 className="mt-10 ml-10 text-xl font-mono text-offWhite text-3xl">
             {searchedRecipes.length
               ? `Viewing ${searchedRecipes.length} results:`
-              : 'Welcome to the Search Page'}
+              : 'Welcome to the Search Page!'}
           </h2>
 
           <figure className="flex text-black flex-wrap justify-center">
@@ -128,12 +128,12 @@ const SearchRecipes = () => {
 
       <div className="w-1/3" id="">
         <Navbar />
-        <div className="flex flex-col bg-blue-200">
-          <h2 className="flex justify-center pt-2">Search For Recipes Here!</h2>
+        <div className="flex flex-col bg-wYellow">
+          <h2 className="flex justify-center pt-2 font-mono text-xl">Search For Recipes Here!</h2>
           <form onSubmit={handleFormSubmit} >
             <div className="flex-row space-between my-2">
               <div className="flex flex-row justify-center ">
-                <label className="" for="complexSearch">Key Word:</label>
+                <label className="font-mono text-lg" for="complexSearch">Key Word:</label>
 
                 <input
                   className="form-input w-1/2 ml-2 rounded"
