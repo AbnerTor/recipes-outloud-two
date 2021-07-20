@@ -1,5 +1,5 @@
 import React from 'react'
-import placeholder from '../../images/placeholder.jpg';
+import placeholder from '../images/placeholder-small.jpg';
 
 
 
@@ -8,25 +8,36 @@ function HomeFeatures() {
     <div>
     
       <div>
-        <h2>Common Features</h2>
-        <img className="rounded-md h-54" src={placeholder} alt="a table full of meals" />
+        <div>
+            <img className="rounded-md h-54" src={placeholder} alt="a table full of meals" />
+        </div>
+        <h2>COMMON FEATURES</h2>
       </div>
 
       <div>
+        <div>
+          <img className="rounded-md h-54" src={placeholder} alt="a table full of meals" />
+        </div>
         <h2>FAQ</h2>
+        
         <ul>
           <li>
-            Which browser support "read outloud" feature? Use Microsoft Edge and Mozilla Fire Fox for best experience. Google Chrome has issues with sound quality and length of speech
+            Which browser support "read outloud" feature? <span className="italic">Use Microsoft Edge and Mozilla Fire Fox for best experience. Google Chrome has issues with sound quality and length of speech.</span>
           </li>
           <li>
-            What is your data source? Spoonacular API - https://spoonacular.com/food-api
+            What is your data source? <span className="italic">Spoonacular API - https://spoonacular.com/food-api</span>
+          </li>
+          <li>
+            How long it took to create "Recipes Outloud"? <span className="italic">Everyone tried to spare as much time as possible out of their regular job routines over a two week time frame.</span>
           </li>
         </ul>  
       </div>
-        <h2>About Us</h2>
-
+      
       <div>
-        <h2>About Us</h2>
+        <div>
+          <img className="rounded-md h-54" src={placeholder} alt="a table full of meals" />
+        </div>
+        <h2>ABOUT US</h2>
         <p>
           We are team BABA, four students at UNC's Full Stack Web Development Boot Camp, 2021. Recipes Outloud application is our graduation project and displays a wide spectrum of coding skills that we mastered as aspiring developers.
           <br/>
@@ -34,16 +45,16 @@ function HomeFeatures() {
         </p>
         <ul>
           <li>
-            Broc Crook - https://github.com/bac5806 
+            Broc Crook | <a href="https://github.com/bac5806" target="blank">@GitHub</a>
           </li>
           <li>
-            Abner Toribio-Vazquez - https://github.com/AbnerTor
+            Abner Toribio-Vazquez | <a href="https://github.com/AbnerTor" target="blank">@GitHub</a>
           </li>
           <li>
-            Brian McMullen - https://github.com/MrBmmc
+            Brian McMullen | <a href="https://github.com/MrBmmc" target="blank">@GitHub</a>
           </li>
           <li>
-            Ali Aran - https://github.com/AranATA
+            Ali Aran | <a href="https://github.com/AranATA" target="blank">@GitHub</a>
           </li>
         </ul> 
       </div>
