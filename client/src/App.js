@@ -17,7 +17,8 @@ import SearchRecipes from './pages/SearchRecipes';
 import MyCollection from './pages/MyCollection';
 import Summary from './pages/Summary';
 import HomeFeatures from './pages/HomeFeatures';
-import TestSpeakPage from './pages/TestSpeakPage';
+
+import Instructions from './pages/Instructions';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -58,7 +59,7 @@ function App() {
 {/* 
             <Route exact path='/recipes/:id' component={TestSpeakPage} /> */}
 
-            <Route exact path='/recipes/:id' component={Summary} />
+            <Route exact path='/recipes/:id' component={Instructions} />
 
             <Route exact path='/features' component={HomeFeatures} />
 
