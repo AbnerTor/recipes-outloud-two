@@ -16,8 +16,8 @@ Ali Aran, [https://github.com/AranATA](https://github.com/AranATA)<br>
 ## description
 
 ***
-As an avid cook; I want to interact with other people, share my recipes, my creations and discover new ones too. Recipes Outloud aims to bring these people together and equip them with various tools to achieve this goal and make cooking more fun then ever!<br>
-Recipes Outloud App answers these need and presents an easy to use UI. The app was developed using the MERN stack with a React front end, MongoDB database, and Node.js/Express.js server and API. It's already set up to allow users to save book searches to the back end. The app was deployed to Heroku through MongoDB Atlas.  
+As an avid cook; I want to browse through recipes, set filters as my search options, create a collection of mine and listen to the instructions. Recipes Outloud aims to equip you with various tools to achieve this goal and make cooking more fun then ever!<br>
+Recipes OutLoud App answers these needs and presents an easy to use interactive UI. The app was developed using the MERN stack with a React front end, MongoDB database, and Node.js/Express.js server and API. It also utilizes Tailwindcss at the front end and it's been set up to allow users to save recipe searches to the back end. All search data is sourced from Spoonacular API and React-Speech is used as the text to speech technology. The app was deployed to Heroku through MongoDB Atlas.  
 <br>
 <br>
 
@@ -25,9 +25,19 @@ Recipes Outloud App answers these need and presents an easy to use UI. The app w
 
 ***
 
-GIVEN a Recipes Outloud App:<br>
+GIVEN Recipes OutLoud, the application:<br>
 
-* WHEN ...; THEN ... .<br>
+* MUST use GraphQL with a Node.js and Express.js server<br>
+* MUST use MongoDB and the Mongoose ODM for the database<br>
+* MUST use queries and mutations for retrieving, adding, updating, and deleting data<br>
+* MUST be deployed using Heroku (with data)<br>
+* MUST have a polished UI<br>
+* MUST be interactive (i.e., accept and respond to user input)<br>
+* MUST include authentication (JWT)<br>
+* MUST protect sensitive API key information on the server<br>
+* MUST have a high quality README file<br>
+* MUST have a clean repository that meets quality coding standards<br>
+* MUST look professional and be mobile-friendly<br>
 <br>
 <br>
 
@@ -42,10 +52,26 @@ Screenshot that shows the app's wireframe:<br>
 <br>
 <br>
 
-Screenshot that shows the full generated web page:<br>
+Screenshots that show the fully generated web pages of the app:<br>
 <br>
 
-![alt text](client/src/images/scrshot-home.png)
+![alt text](client/src/images/scrshot-signup.png)
+<br>
+<br>
+
+![alt text](client/src/images/scrshot-features.png)
+<br>
+<br>
+
+![alt text](client/src/images/scrshot-search.png)
+<br>
+<br>
+
+![alt text](client/src/images/scrshot-collection.png)
+<br>
+<br>
+
+![alt text](client/src/images/scrshot-outloud.png)
 <br>
 <br>
 <br>
