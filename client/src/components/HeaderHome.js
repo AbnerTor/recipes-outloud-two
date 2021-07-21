@@ -52,6 +52,7 @@ const HeaderHome = () => {
           <h1 className='pl-4 pt-5 text-offWhite font-mono text-3xl '>Recipes OutLoud</h1>
         </Link>
 
+            <div className="flex flex-wrap">
         <p className="mt-32 pl-14 text-lg text-offWhite font-landing text-5xl">Expand Your Joy of Cooking!</p>
         <p className="pl-14 text-2xl text-offWhite font-mono mt-16 mb-36">Recipes OutLoud is a platform for all food-lovers<br/> Easily create a collection of recipes <br/> Hear them "OutLoud" with one click</p>
       </div>
@@ -67,7 +68,7 @@ const HeaderHome = () => {
           </figure>
         </section>
       </div>
-
+    </div>
     </div>
   )
 }

@@ -9,36 +9,43 @@ const Navbar = () => {
     Auth.logout();
   };
   return (
-    <div className='flex flex-row justify-center bg-bRed text-black font-mono w-full justify-center py-5 font-mono'>
+    <div className='flex-wrap flex-row justify-center bg-green-100 text-black font-mono w-full justify-center py-5 font-mono p-8'>
 
-      <div className='flex justify-end items-center h-16 relative underline font-mono'>
+      {window.location.pathname === "/me" ? <h2 className="text-center text-5xl p-7 font-landing text-red-300">Welcome To Your Profile Page!</h2> : ""} 
+
+      <div className='flex justify-end items-center h-16 relative underline font-mono'> 
 
         <div>
           {Auth.loggedIn() ? (
             <>
-              <div className='pr-8 md:block flex items-center'>
+              <div className='p-8 inline-block'>
+                {window.location.pathname !== "/me" ? <Link to='/me' className='p-1.5 ml-16 mb-5 text-md font-mono text-white bg-blue-500 hover:bg-purple-700 rounded-lg'>
+                Profile </Link> : ""}
 
-                <Link to='/me' className='p-4 text-lg ml-10 font-mono'>
-                  {Auth.getProfile().data.username}'s profile
-                </Link>
-                <button className="btn btn-lg btn-light m-2 text-base underline text-lg" onClick={logout}>Sign out</button>
-
-                <Link className="text-lg p-4 ml-2 md:ml-20" to='/features'>
+                {window.location.pathname === "/" ? "" : 
+                <Link className="text-md p-2 ml-2 md:ml-20 p-2 ml-16 text-md ml-10 font-mono text-white bg-blue-400 hover:bg-purple-700 rounded-lg" to='/features'>
                   About
-                </Link>
+                </Link>}
 
-                <Link className="text-lg p-4 font-mono" to='/search-recipes'>
+
+                <Link className="no-underline ml-6 text-md p-2 font-mono m-2 text-base text-md text-white bg-green-400 hover:bg-purple-700 rounded-lg" to='/search-recipes'>
                   Search
                 </Link>
+
+                <button className="btn btn-lg btn-light m-2 ml-4 font-mono text-base text-md text-white bg-red-400 hover:bg-purple-700 rounded-lg p-1" onClick={logout}>Sign out</button>
+        
               </div>
             </>
           ) : (
             <>
-              {window.location.pathname === '/signin' ? <Link className="btn btn-lg btn-light m-2 text-xl underline font-mono" to="/">
+              {window.location.pathname === '/signin' ? <Link className="no-underline text-md p-2 font-mono m-2 text-base text-md text-white bg-green-400 hover:bg-purple-700 rounded-lg" to="/">
                 Sign up
-              </Link> : <Link className="btn btn-lg btn-info m-2 text-xl underline font-mono" to="/signin">
+              </Link> : <Link className="no-underline text-md p-2 mr-10 font-mono m-2 text-base text-md text-white bg-green-400 hover:bg-purple-700 rounded-lg" to="/signin">
                 Sign in
               </Link>}
+              <Link className="text-md p-2 ml-2 md:ml-20 p-2 mr-3 text-md ml-10 font-mono text-white bg-blue-400 hover:bg-purple-700 rounded-lg" to='/features'>
+                  About
+              </Link>
             </>
           )}
         </div>
