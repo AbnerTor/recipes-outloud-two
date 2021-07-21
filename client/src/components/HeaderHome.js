@@ -56,7 +56,7 @@ const HeaderHome = () => {
 
             </div>
 
-            <div className="flex flex-row">
+            <div className="flex flex-wrap">
 
                 <section className="flex h-96 mx-5" id="Search">
                     <figure className="flex rounded">

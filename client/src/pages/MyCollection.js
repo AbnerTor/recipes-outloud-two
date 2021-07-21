@@ -10,7 +10,8 @@ import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 import MyCard from '../components/MyCard';
 import Navbar from '../components/Navbar';
-
+import { IconContext } from 'react-icons';
+import { GiCookingPot } from 'react-icons/gi';
 import { removeRecipeId } from '../utils/localStorage';
 
 const MyCollection = () => {
@@ -75,28 +76,36 @@ const MyCollection = () => {
 
   return (
     <>
-      <div>
-        <Navbar className="flex w-1/3 " />
-        <h2 className="py-3 bg-red-400 text-xl flex justify-center font-mono">
+      <div className="">
+        <Link to='/' className='px-8 flex bg-darkBlue'>
+            <IconContext.Provider value={{ color: 'green', size: '4rem' }}>
+                <div>
+                    <GiCookingPot />
+                </div>
+            </IconContext.Provider>
+            <h1 className='pl-4 pt-5 text-offWhite font-landing text-2xl'>RECIPES OUTLOUD</h1>
+        </Link>
+          <Navbar className="flex w-1/3" />
+        <h2 className="py-3 bg-blue-400 text-xl flex justify-center font-mono">
           {user.savedRecipes.length
             ? `Viewing ${user.savedRecipes.length} saved ${user.savedRecipes.length === 1 ? 'recipe' : 'recipes'}:`
             : 'You have no saved recipes!'}
         </h2>
         <figure className="flex text-black flex-wrap justify-center">
           {user.savedRecipes.map((recipe) => (
-            <div className="flex flex-col items-center ">
+            <div className="flex flex-col items-center">
               
               <MyCard key={recipe.recipeId} id={recipe.recipeId} title={recipe.title} image={recipe.image} summary={recipe.summary} />
 
               <div className="flex justify-center">
                 <Link
-                  className="bg-green-800 rounded text-white text-center m-1 content-center clear-both p-2 px-1"
+                  className="bg-green-800 rounded text-white text-center m-1 content-center clear-both p-2 px-1 hover:bg-purple-700"
                   to={`/recipes/${recipe.recipeId}`}
                 >    View + Hear
                 </Link>
 
                 <button
-                  className='bg-red-800 rounded text-white clear-both p-2 m-1'
+                  className='bg-red-800 rounded text-white clear-both p-2 m-1 hover:bg-purple-700'
                   onClick={() => handleDeleteRecipe(recipe.recipeId)}>Remove
                 </button>
               </div>
