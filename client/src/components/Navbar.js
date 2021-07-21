@@ -9,9 +9,9 @@ const Navbar = () => {
     Auth.logout();
   };
   return (
-    <div className='flex-wrap flex-row justify-center bg-green-100 text-black font-mono w-full justify-center py-5 font-mono p-8'>
+    <div className='flex-wrap flex-row justify-center bg-darkBlue text-black font-mono w-full justify-center py-5 font-mono p-8'>
 
-      {window.location.pathname === "/me" ? <h2 className="text-center text-5xl p-7 font-landing text-red-300">Welcome To Your Profile Page!</h2> : ""} 
+      {window.location.pathname === "/me" ? <h2 className="text-center text-3xl p-7 font-landing text-red-300">Welcome To Your Profile Page!</h2> : ""} 
 
       <div className='flex justify-end items-center h-16 relative underline font-mono'> 
 
