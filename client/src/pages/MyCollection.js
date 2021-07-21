@@ -37,7 +37,7 @@ const MyCollection = () => {
     return (
       <div>
         <h4 className="bg-yellow-400 text-xl flex justify-center py-5 font-mono">
-          You need to be logged in to see this. Please use the navigation links above to sign up or sign in!
+          Missing information, please try again with the links below to sign up or sign in!
         </h4>
         <Navbar />
       </div>

@@ -49,11 +49,11 @@ const HeaderHome = () => {
                             <GiCookingPot />
                         </div>
                     </IconContext.Provider>
-                    <h1 className='pl-4 pt-5 text-offWhite font-landing text-6xl '>RECIPES OUTLOUD</h1>
+                    <h1 className='pl-4 pt-5 text-offWhite font-landing text-6xl '>RECIPES OUT LOUD</h1>
                 </Link>
 
                 <p className="pl-14 text-lg text-offWhite font-mono">Expand Your Joy of Cooking!</p>
-
+                <p className="pl-14 text-lg text-offWhite font-mono">Recipes Out Loud is an interactive platform where you can create your own collection of recipes and listen to them</p>
             </div>
 
             <div className="flex flex-row">
