@@ -1,5 +1,3 @@
-console.log(`api: ${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
-
 // call spoonacular api
 export function searchRandomRecipe() {
     return fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&number=4`);

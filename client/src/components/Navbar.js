@@ -3,7 +3,7 @@ import { IconContext } from "react-icons";
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 // *toggle here is experimental at the moment - new push
-const Navbar = ({ toggle }) => {
+const Navbar = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
@@ -34,14 +34,11 @@ const Navbar = ({ toggle }) => {
             </>
           ) : (
             <>
-
-              <Link className="btn btn-lg btn-info m-2 text-xl underline font-mono" to="/signin">
-                Sign in
-              </Link>
-              <Link className="btn btn-lg btn-light m-2 text-xl underline font-mono" to="/">
-
+              {window.location.pathname === '/signin' ? <Link className="btn btn-lg btn-light m-2 text-xl underline font-mono" to="/">
                 Sign up
-              </Link>
+              </Link> : <Link className="btn btn-lg btn-info m-2 text-xl underline font-mono" to="/signin">
+                Sign in
+              </Link>}
             </>
           )}
         </div>

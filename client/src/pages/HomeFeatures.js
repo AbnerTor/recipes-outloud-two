@@ -3,8 +3,6 @@ import features from '../images/features-small.jpg';
 import faq from '../images/faq-small.jpg';
 import aboutus from '../images/aboutus-small.jpg';
 
-
-
 function HomeFeatures() {
   return (
     <div>
@@ -93,7 +91,6 @@ function HomeFeatures() {
           </ul>
         </div>
       </div>
-
 </div>
   )
 }
