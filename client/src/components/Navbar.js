@@ -22,18 +22,19 @@ const Navbar = () => {
                 {window.location.pathname !== "/me" ? <Link to='/me' className='p-1.5 ml-16 mb-5 text-md font-mono text-white bg-blue-500 hover:bg-purple-700 rounded-lg'>
                 Profile </Link> : ""}
 
-                {window.location.pathname === "/" ? "" : 
+                {window.location.pathname === "/" || window.location.pathname === "/search-recipes" || window.location.pathname === "/features" ? "" : 
                 <Link className="text-md p-2 ml-2 md:ml-20 p-2 ml-16 text-md ml-10 font-mono text-white bg-blue-400 hover:bg-purple-700 rounded-lg" to='/features'>
                   About
                 </Link>}
 
-
+                {window.location.pathname === "/search-recipes" ? "" : 
                 <Link className="no-underline ml-6 text-md p-2 font-mono m-2 text-base text-md text-white bg-green-400 hover:bg-purple-700 rounded-lg" to='/search-recipes'>
                   Search
-                </Link>
+                </Link> }
 
+              {window.location.pathname === "/search-recipes" ? "" :
                 <button className="btn btn-lg btn-light m-2 ml-4 font-mono text-base text-md text-white bg-red-400 hover:bg-purple-700 rounded-lg p-1" onClick={logout}>Sign out</button>
-        
+              }
               </div>
             </>
           ) : (
