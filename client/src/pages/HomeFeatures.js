@@ -14,7 +14,7 @@ function HomeFeatures() {
       <div className="flex justify-evenly">
         <div className="flex-column w-1/5">
           <div>
-            <img className="rounded-md h-54" src={features} alt="a table full of meals" />
+            <img className="rounded-md h-54 mt-10" src={features} alt="a table full of meals" />
           </div>
           <h2 className="py-3 bg-blue-400 text-xl flex justify-center font-mono">COMMON FEATURES</h2>
           <div className="mt-6 mb-20">
@@ -48,7 +48,7 @@ function HomeFeatures() {
 
         <div className="flex-column w-1/5">
           <div>
-            <img className="rounded-md h-54" src={faq} alt="a table full of meals" />
+            <img className="rounded-md h-54 pt-10 rounded" src={faq} alt="a table full of meals" />
           </div>
           <h2 className="py-3 bg-blue-400 text-xl flex justify-center font-mono">FAQ</h2>
 
@@ -72,7 +72,7 @@ function HomeFeatures() {
 
         <div className="flex-column w-1/5">
           <div>
-            <img className="rounded-md h-54" src={aboutus} alt="a table full of meals" />
+            <img className="rounded-md h-54 pt-10 rounded" src={aboutus} alt="a table full of meals" />
           </div>
           <h2 className="py-3 bg-blue-400 text-xl flex justify-center font-mono">ABOUT US</h2>
           <div className="mt-6">
@@ -81,7 +81,7 @@ function HomeFeatures() {
                 Broc CROOK | <a href="https://github.com/bac5806" target="blank" className="text-sm md:no-underline md:hover:underline md:hover:text-green-600">@GitHub</a> | <a href="https://www.linkedin.com/in/broc-crook-02248943/" target="blank" className="text-sm md:no-underline md:hover:underline md:hover:text-green-600">@LinkedIn</a>
               </li>
               <li>
-                Abner TORIBIO-VAZQUEZ | <a href="https://github.com/AbnerTor" target="blank" className="text-sm md:no-underline md:hover:underline md:hover:text-green-600">@GitHub</a>
+                Abner TORIBIO-VAZQUEZ | <a href="https://github.com/AbnerTor" target="blank" className="text-sm md:no-underline md:hover:underline md:hover:text-green-600">@GitHub</a> | <a href="https://www.linkedin.com/in/toribioabner/" target="blank" className="text-sm md:no-underline md:hover:underline md:hover:text-green-600">@LinkedIn</a>
               </li>
               <li>
                 Brian McMULLEN | <a href="https://github.com/MrBmmc" target="blank" className="text-sm md:no-underline md:hover:underline md:hover:text-green-600">@GitHub</a> | <a href="https://www.linkedin.com/in/brian-mcmullen-b9063720b/" target="blank" className="text-sm md:no-underline md:hover:underline md:hover:text-green-600">@LinkedIn</a>

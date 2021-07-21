@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import placeholder from '../images/placeholder.jpg';
+// import placeholder from '../images/placeholder.jpg';
 
 function SearchCard(props) {
   // Creating the URL link from recipe.title of the complexSearch results 

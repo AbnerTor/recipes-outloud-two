@@ -58,7 +58,7 @@ const SearchRecipes = () => {
       const complexData = results.map((recipe) => ({
         recipeId: recipe.id,
         title: recipe.title,
-        image: recipe.image || '../../images/placeholder.jpg',
+        image: recipe.image || '../images/placeholder.jpg',
 
       }));
 
