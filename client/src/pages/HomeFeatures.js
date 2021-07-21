@@ -14,7 +14,7 @@ function HomeFeatures() {
       <div className="flex justify-evenly">
         <div className="flex-column w-1/5">
           <div>
-            <img className="rounded-md h-54" src={features} alt="a table full of meals" />
+            <img className="rounded-md h-54 mt-10" src={features} alt="a table full of meals" />
           </div>
           <h2 className="py-3 bg-blue-400 text-xl flex justify-center font-mono">COMMON FEATURES</h2>
           <div className="mt-6 mb-20">
@@ -48,7 +48,7 @@ function HomeFeatures() {
 
         <div className="flex-column w-1/5">
           <div>
-            <img className="rounded-md h-54" src={faq} alt="a table full of meals" />
+            <img className="rounded-md h-54 pt-10 rounded" src={faq} alt="a table full of meals" />
           </div>
           <h2 className="py-3 bg-blue-400 text-xl flex justify-center font-mono">FAQ</h2>
 
@@ -72,7 +72,7 @@ function HomeFeatures() {
 
         <div className="flex-column w-1/5">
           <div>
-            <img className="rounded-md h-54" src={aboutus} alt="a table full of meals" />
+            <img className="rounded-md h-54 pt-10 rounded" src={aboutus} alt="a table full of meals" />
           </div>
           <h2 className="py-3 bg-blue-400 text-xl flex justify-center font-mono">ABOUT US</h2>
           <div className="mt-6">
