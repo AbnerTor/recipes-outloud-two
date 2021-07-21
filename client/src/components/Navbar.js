@@ -40,10 +40,10 @@ const Navbar = () => {
             <>
               {window.location.pathname === '/signin' ? <Link className="no-underline text-md p-2 font-mono m-2 text-base text-md text-white bg-green-400 hover:bg-purple-700 rounded-lg" to="/">
                 Sign up
-              </Link> : <Link className="no-underline text-md p-2 mr-10 font-mono m-2 text-base text-md text-white bg-green-400 hover:bg-purple-700 rounded-lg" to="/signin">
+              </Link> : <Link className="no-underline text-md p-2 mr-6 font-mono m-2 text-base text-md text-white bg-green-400 hover:bg-purple-700 rounded-lg" to="/signin">
                 Sign in
               </Link>}
-              <Link className="text-md p-2 ml-2 md:ml-20 p-2 mr-3 text-md ml-10 font-mono text-white bg-blue-400 hover:bg-purple-700 rounded-lg" to='/features'>
+              <Link className="text-md p-2 ml-2 md:ml-10 p-2 mr-3 text-md mr-10 font-mono text-white bg-blue-400 hover:bg-purple-700 rounded-lg" to='/features'>
                   About
               </Link>
             </>

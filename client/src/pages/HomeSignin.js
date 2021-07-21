@@ -52,7 +52,7 @@ const Signin = (props) => {
   };
 
   return (
-    <div className="flex flex-row mx-32">
+    <div className="flex flex-row mx-20">
 
       <HeaderHome />
 

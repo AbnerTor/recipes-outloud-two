@@ -83,7 +83,7 @@ const MyCollection = () => {
                     <GiCookingPot />
                 </div>
             </IconContext.Provider>
-            <h1 className='pl-4 pt-5 text-offWhite font-landing text-2xl'>RECIPES OUTLOUD</h1>
+            <h1 className='pl-4 pt-5 text-offWhite font-mono text-2xl'>RECIPES OUTLOUD</h1>
         </Link>
           <Navbar className="flex w-1/3" />
         <h2 className="py-3 bg-blue-400 text-xl flex justify-center font-mono">
