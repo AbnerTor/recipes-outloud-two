@@ -79,7 +79,7 @@ const MyCollection = () => {
         <Navbar className="flex w-1/3 " />
         <h2 className="py-3 bg-red-400 text-xl flex justify-center font-mono">
           {user.savedRecipes.length
-            ? `Viewing ${user.savedRecipes.length} saved ${user.savedRecipes.length === 1 ? 'recipe' : 'recipes'}:`
+            ? `${user.username}, your collection has ${user.savedRecipes.length} ${user.savedRecipes.length === 1 ? 'recipe' : 'recipes'}:`
             : 'You have no saved recipes!'}
         </h2>
         <figure className="flex text-black flex-wrap justify-center">
