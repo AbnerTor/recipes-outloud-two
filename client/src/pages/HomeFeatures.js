@@ -12,7 +12,7 @@ function HomeFeatures() {
         <Navbar />
       </div>
       <div className="flex justify-evenly">
-        <div className="flex-column w-1/5">
+        <div className="flex-column w-1/6">
           <div>
             <img className="rounded-md h-54 mt-10" src={features} alt="a table full of meals" />
           </div>
@@ -46,7 +46,7 @@ function HomeFeatures() {
           </div>
         </div>
 
-        <div className="flex-column w-1/5">
+        <div className="flex-column w-1/6">
           <div>
             <img className="rounded-md h-54 pt-10 rounded" src={faq} alt="a table full of meals" />
           </div>
@@ -70,7 +70,7 @@ function HomeFeatures() {
           </div>
         </div>
 
-        <div className="flex-column w-1/5">
+        <div className="flex-column w-1/6">
           <div>
             <img className="rounded-md h-54 pt-10 rounded" src={aboutus} alt="a table full of meals" />
           </div>
