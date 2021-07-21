@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Menu } from '@headlessui/react'
 import globalContext from '../utils/globalContext'
-import HeadlessUi from '@headlessui/react'
+// import HeadlessUi from '@headlessui/react'
 
 function UiDropdown() {
 
